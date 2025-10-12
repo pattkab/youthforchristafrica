@@ -9,19 +9,23 @@
 
     body { background-color: #f5f5f5; color: #333; line-height: 1.6; scroll-behavior: smooth; }
 
-    /* 🎥 Video hero */
+    /* 🎥 Video hero (FULL HEIGHT) */
     .video-container {
       position: relative;
       background-color: #000;
       text-align: center;
       width: 100%;
-      max-height: 70vh;
+      height: 100vh; /* fills full browser height */
       overflow: hidden;
     }
     .video-container video {
-      width: 100%;
-      height: auto;
-      display: block;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      min-width: 100%;
+      min-height: 100%;
+      transform: translate(-50%, -50%);
+      object-fit: cover; /* ensures full coverage of frame */
     }
 
     /* ⬇️ Scroll cue overlay (RIGHT-ALIGNED, BURGUNDY COLOR) */
@@ -33,7 +37,7 @@
       flex-direction: column;
       align-items: center;
       gap: 8px;
-      color: #a52a2a; /* Burgundy */
+      color: #a52a2a;
       text-decoration: none;
       opacity: 0.95;
       padding: 6px 10px;
@@ -78,7 +82,7 @@
     /* Mouse animation */
     .mouse {
       width: 22px; height: 36px;
-      border: 2px solid #a52a2a; /* Burgundy */
+      border: 2px solid #a52a2a;
       border-radius: 14px;
       position: relative;
       opacity: .9;
@@ -141,7 +145,7 @@
 </head>
 <body>
 
-  <!-- 🎥 Video Section with right-aligned burgundy scroll cue -->
+  <!-- 🎥 Full-height video section -->
   <div class="video-container">
     <video autoplay muted loop playsinline>
       <source src="G21 LOGO INTRO.mp4" type="video/mp4">
@@ -205,17 +209,17 @@
     </div>
   </section>
 
-  <!-- 🙏 Remaining Placeholder Sections -->
+  <!-- 🙏 Placeholder Sections -->
   <section id="prayer-requests"><h2>Submit Prayer Requests</h2><p>[Placeholder for prayer request form]</p></section>
   <section id="prayer-letter"><h2>Monthly Prayer Letter</h2><p>[Placeholder for monthly prayer letter updates]</p></section>
   <section id="resources"><h2>Resources on Prayer & Spiritual Discipline</h2><p>[Placeholder for downloadable resources and articles]</p></section>
   <section id="bible-games"><h2>Bible Games</h2><p>[Placeholder for fun and educational Bible games]</p></section>
   <section id="quizzes"><h2>Short Quizzes</h2><p>[Placeholder for short Bible and faith quizzes]</p></section>
   <section id="counselling"><h2>Counselling Platforms</h2><p>[Placeholder for counselling contact links]</p></section>
-  <section id="donations"><h2>Donate</h2><p>[Placeholder for donation information or button]</p></section>
+  <section id="donations"><h2>Receive Donations</h2><p>[Placeholder for donation information or button]</p></section>
   <section id="events"><h2>Announcements, Events & Features</h2><p>[Placeholder for events and announcements]</p></section>
-  <section id="videos"><h2>Watch Our YouTube Videos</h2><p>[Placeholder for YouTube embedded content]</p></section>
-  <section id="shop"><h2>Book Shop</h2><p>[Placeholder for book listings]</p></section>
+  <section id="videos"><h2>Embedded YouTube Videos</h2><p>[Placeholder for YouTube embedded content]</p></section>
+  <section id="shop"><h2>Sell Books</h2><p>[Placeholder for book listings]</p></section>
   <section id="forums"><h2>Discussion Forums</h2><p>[Placeholder for future community discussions]</p></section>
 
   <footer>
@@ -233,7 +237,7 @@
         hasScrolled = true;
       }
       if (hasScrolled && window.scrollY < 20) {
-        scrollCue.classList.remove('hide'); // reappear if user scrolls back to top
+        scrollCue.classList.remove('hide');
         hasScrolled = false;
       }
     });
