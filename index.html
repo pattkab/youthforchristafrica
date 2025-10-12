@@ -1,324 +1,199 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Youth for Christ Africa — Home</title>
-  <meta name="description" content="Youth for Christ Africa — Prayer, discipleship, resources and community for young Christians across Africa." />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Youth for Christ Africa | Spiritual Formation</title>
   <style>
-    :root{--accent:#4f46e5;--muted:#6b7280;--bg:#f8fafc}
-    *{box-sizing:border-box}
-    html,body{height:100%;margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial;color:#0f172a;background:var(--bg)}
-    a{color:inherit;text-decoration:none}
-    header{background:white;box-shadow:0 2px 8px rgba(15,23,42,0.06);position:sticky;top:0;z-index:40}
-    .container{max-width:1100px;margin:0 auto;padding:1rem}
-    .nav{display:flex;align-items:center;justify-content:space-between;gap:1rem}
-    .nav-links{display:flex;gap:.6rem;align-items:center}
-    .btn{background:var(--accent);color:white;padding:.55rem .9rem;border-radius:8px;border:0;cursor:pointer}
-    .hero{display:grid;grid-template-columns:1fr;gap:1.25rem;padding:2.25rem 0}
-    .card{background:white;border-radius:12px;padding:1rem;box-shadow:0 6px 20px rgba(2,6,23,0.04)}
-    h1{margin:0;font-size:1.5rem}
-    p.lead{color:var(--muted);margin:.5rem 0 0}
-    nav a.small{font-size:.9rem;color:var(--muted)}
-    /* two-column layout for larger screens */
-    @media(min-width:880px){
-      .hero{grid-template-columns:60% 36%}
-      .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem}
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
-    section{padding:2rem 0}
-    h2{margin:.2rem 0 .6rem}
-    .muted{color:var(--muted);font-size:.95rem}
-    form input, form textarea{width:100%;padding:.6rem;border:1px solid #e6e9ef;border-radius:8px;margin-top:.45rem}
-    .small-muted{font-size:.85rem;color:#94a3b8}
-    .grid-3{display:grid;grid-template-columns:1fr;gap:1rem}
-    @media(min-width:880px){.grid-3{grid-template-columns:repeat(3,1fr)}}
-    footer{padding:2rem 0;color:var(--muted);text-align:center}
-    .pill{background:#eef2ff;color:var(--accent);padding:.35rem .6rem;border-radius:999px;font-weight:600}
-    .placeholder{min-height:120px;display:flex;align-items:center;justify-content:center;color:var(--muted);border:2px dashed #e6e9ef;border-radius:10px;background:linear-gradient(0deg,#ffffff, #fbfdff)}
-    .event-list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:.6rem}
-    .event-item{background:#fff;border-radius:8px;padding:.75rem;border:1px solid #eef2ff}
-    .shop-grid{display:grid;gap:1rem}
-    @media(min-width:640px){.shop-grid{grid-template-columns:repeat(2,1fr)}}
-    .shop-item{background:white;padding:1rem;border-radius:10px;border:1px solid #e6eefb}
-    .forum-preview{display:flex;flex-direction:column;gap:.5rem}
-    .yt-video{aspect-ratio:16/9;width:100%;border-radius:8px;overflow:hidden}
-    .nav-toggle{display:inline-flex;background:transparent;border:0;padding:.35rem;border-radius:8px}
-    @media(min-width:880px){.nav-toggle{display:none}}
-    .mobile-nav{display:none}
-    @media(max-width:879px){.nav-links{display:none}.mobile-nav{display:block}}
+
+    body {
+      background-color: #f5f5f5;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #fff;
+      border-bottom: 2px solid #a52a2a;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 5%;
+    }
+
+    header img {
+      height: 60px;
+    }
+
+    header h1 {
+      font-size: 1.2rem;
+      color: #a52a2a;
+    }
+
+    nav {
+      background-color: #a52a2a;
+      text-align: center;
+      padding: 10px;
+    }
+
+    nav a {
+      color: #fff;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    section {
+      padding: 40px 5%;
+      background-color: #fff;
+      margin: 20px auto;
+      border-radius: 10px;
+      max-width: 900px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      color: #a52a2a;
+      margin-bottom: 15px;
+    }
+
+    p {
+      margin-bottom: 15px;
+    }
+
+    .coordinator {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .coordinator img {
+      width: 160px;
+      height: 160px;
+      border-radius: 10px;
+      object-fit: cover;
+      border: 3px solid #a52a2a;
+    }
+
+    footer {
+      text-align: center;
+      background: #a52a2a;
+      color: #fff;
+      padding: 20px;
+      margin-top: 40px;
+    }
   </style>
 </head>
 <body>
   <header>
-    <div class="container nav" role="navigation" aria-label="Main navigation">
-      <div style="display:flex;gap:1rem;align-items:center">
-        <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='42' height='42' viewBox='0 0 24 24' fill='none'><circle cx='12' cy='12' r='10' fill='%234f46e5'/><path d='M12 6v6l4 2' stroke='white' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/></svg>" alt="YFCA logo" style="border-radius:8px;"/>
-        <div>
-          <div style="font-weight:700">Youth for Christ Africa</div>
-          <div class="small-muted" style="font-size:.8rem">Prayer. Discipleship. Community.</div>
-        </div>
-      </div>
-
-      <div class="nav-links">
-        <a class="small" href="#prayer">Prayer</a>
-        <a class="small" href="#resources">Resources</a>
-        <a class="small" href="#videos">Videos</a>
-        <a class="small" href="#donate">Donate</a>
-        <a class="small" href="#shop">Shop</a>
-        <a class="small" href="#forums">Forums</a>
-        <button class="btn" onclick="document.getElementById('prayer-form').scrollIntoView({behavior:'smooth'})">Submit Prayer</button>
-      </div>
-
-      <div class="mobile-nav">
-        <button class="nav-toggle" aria-expanded="false" aria-controls="mobileMenu" onclick="toggleMobileMenu(this)">☰</button>
-      </div>
-    </div>
-    <div id="mobileMenu" style="display:none;background:white;padding:.75rem 1rem;border-top:1px solid #f1f5f9">
-      <div class="container" style="display:flex;flex-direction:column;gap:.5rem">
-        <a href="#prayer">Submit Prayer</a>
-        <a href="#monthly-letter">Monthly Letter</a>
-        <a href="#resources">Resources</a>
-        <a href="#games">Bible Games</a>
-        <a href="#quizzes">Short Quizzes</a>
-        <a href="#counselling">Counselling</a>
-        <a href="#donate">Donate</a>
-        <a href="#events">Events</a>
-        <a href="#videos">Videos</a>
-        <a href="#shop">Shop</a>
-        <a href="#forums">Forums</a>
-      </div>
-    </div>
+    <img src="SF Logo.png" alt="YFCI Spiritual Formation Africa Logo" />
+    <h1>YFCI Spiritual Formation Africa</h1>
   </header>
 
-  <main class="container">
-    <section class="hero">
+  <nav>
+    <a href="#prayer-requests">Prayer Requests</a>
+    <a href="#prayer-letter">Prayer Letter</a>
+    <a href="#resources">Resources</a>
+    <a href="#bible-games">Bible Games</a>
+    <a href="#quizzes">Quizzes</a>
+    <a href="#counselling">Counselling</a>
+    <a href="#donations">Donations</a>
+    <a href="#events">Events</a>
+    <a href="#videos">Videos</a>
+    <a href="#shop">Books</a>
+    <a href="#forums">Forums</a>
+  </nav>
+
+  <section id="intro">
+    <h2>Welcome to Youth for Christ Africa – Spiritual Formation</h2>
+    <p>
+      Our mission is to nurture spiritual growth, prayerful living, and authentic discipleship across Africa. 
+      Here you’ll find resources, prayer opportunities, and spiritual formation materials that inspire young believers to grow in faith.
+    </p>
+  </section>
+
+  <section id="coordinator">
+    <h2>Lead Coordinator</h2>
+    <div class="coordinator">
+      <img src="Pastor Irene.png" alt="Pastor Irene Aliso Kabagambe" />
       <div>
-        <div class="card">
-          <h1>Raising a generation devoted to Christ across Africa</h1>
-          <p class="lead">Join us in prayer, discipleship and service. Connect with youth leaders, access prayer resources, watch devotionals and be part of an active community.</p>
-          <div style="margin-top:1rem;display:flex;gap:.6rem;flex-wrap:wrap">
-            <a class="btn" href="#prayer">Submit Prayer</a>
-            <a class="pill" href="#monthly-letter">Monthly Prayer Letter</a>
-            <a class="pill" href="#events">Events</a>
-          </div>
-        </div>
-
-        <section id="prayer" style="margin-top:1rem">
-          <div class="card" id="prayer-form">
-            <h2>Submit Prayer Requests</h2>
-            <p class="muted">Share a request for our community to pray for. Mark private if you prefer staff-only prayer.</p>
-            <form onsubmit="return fakeSubmitPrayer(event)">
-              <label for="prayer-name">Name (optional)</label>
-              <input id="prayer-name" name="name" placeholder="Your name" />
-
-              <label for="prayer-country">Country (optional)</label>
-              <input id="prayer-country" name="country" placeholder="e.g., Uganda" />
-
-              <label for="prayer-text">Prayer request</label>
-              <textarea id="prayer-text" name="request" rows="4" placeholder="Write your prayer request here..."></textarea>
-
-              <label style="display:flex;gap:.5rem;align-items:center;margin-top:.4rem"><input type="checkbox" id="private" name="private"/> <span class="small-muted">Mark as private (staff-only)</span></label>
-
-              <div style="display:flex;gap:.6rem;align-items:center;margin-top:0.8rem">
-                <button type="submit" class="btn">Send Prayer Request</button>
-                <button type="button" onclick="clearPrayerForm()" style="background:#eef2ff;border:0;padding:.5rem .8rem;border-radius:8px">Clear</button>
-              </div>
-
-              <p id="prayer-status" class="small-muted" style="margin-top:.6rem"></p>
-            </form>
-          </div>
-        </section>
-
-        <section id="monthly-letter" style="margin-top:1rem">
-          <div class="card">
-            <h2>Monthly Prayer Letter</h2>
-            <p class="muted">Archive of short monthly letters. Subscribe to receive the next edition by email.</p>
-            <div style="display:flex;gap:.6rem;margin-top:.6rem">
-              <input id="subscribe-email" placeholder="Your email" />
-              <button class="btn" onclick="fakeSubscribe()">Subscribe</button>
-            </div>
-            <ul style="margin-top:1rem">
-              <li><strong>October 2025</strong> — Focus: Unity in Prayer (placeholder)</li>
-              <li><strong>September 2025</strong> — Focus: Youth Discipleship (placeholder)</li>
-              <li><strong>August 2025</strong> — Focus: Breakthrough (placeholder)</li>
-            </ul>
-          </div>
-        </section>
-
-        <section id="resources" style="margin-top:1rem">
-          <div class="card">
-            <h2>Resources on Prayer Initiatives & Spiritual Discipline</h2>
-            <p class="muted">Downloadable devotionals, guides and recommended reading (placeholders).</p>
-            <div class="grid-2" style="margin-top:.8rem">
-              <div>
-                <h4>Featured</h4>
-                <p class="small-muted">"30 Days of Prayer" (PDF) — Coming soon.</p>
-              </div>
-              <div>
-                <h4>Categories</h4>
-                <ul class="small-muted">
-                  <li>Daily Devotions</li>
-                  <li>Fasting Guides</li>
-                  <li>Prayer Group Resources</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section id="games" style="margin-top:1rem">
-          <div class="card">
-            <h2>Bible Games</h2>
-            <p class="muted">Simple games for youth — placeholder. Soon: interactive quizzes, scripture puzzles and leaderboards.</p>
-            <div class="placeholder" aria-hidden="true">🎮 Coming soon: Bible games</div>
-          </div>
-        </section>
-
-        <section id="quizzes" style="margin-top:1rem">
-          <div class="card">
-            <h2>Short Quizzes</h2>
-            <p class="muted">Test your Bible knowledge or discover your spiritual gifts. (Placeholders)</p>
-            <div style="display:flex;gap:.6rem;margin-top:.6rem">
-              <button class="btn" onclick="alert('Placeholder: quiz coming soon!')">Take a Sample Quiz</button>
-              <button style="background:#f1f5f9;border:0;padding:.5rem .8rem;border-radius:8px" onclick="alert('Placeholder: quiz editor coming soon!')">Create Quiz (Admin)</button>
-            </div>
-          </div>
-        </section>
-
-        <section id="counselling" style="margin-top:1rem">
-          <div class="card">
-            <h2>Counselling Platforms</h2>
-            <p class="muted">A directory of trusted Christian counselling resources and request forms for mentors.</p>
-            <ul style="margin-top:.6rem">
-              <li>Online Counselling (placeholder)</li>
-              <li>Local Youth Mentor Request (placeholder)</li>
-              <li>Emergency Support: List of hotlines (placeholder)</li>
-            </ul>
-          </div>
-        </section>
-
+        <h3>Pastor Irene Aliso Kabagambe</h3>
+        <p>
+          Pastor Irene leads the Spiritual Formation Africa initiative under Youth for Christ International. 
+          Her passion is to see youth across Africa experience deep transformation through prayer, mentorship, and Christ-centered living.
+        </p>
       </div>
+    </div>
+  </section>
 
-      <aside>
-        <div class="card">
-          <h3>Upcoming Events</h3>
-          <p class="small-muted">Quick view of featured events and prayer meetings.</p>
-          <ul class="event-list" style="margin-top:.8rem">
-            <li class="event-item"><strong>Youth Prayer Night</strong><div class="small-muted">Oct 20, 2025 — Online</div></li>
-            <li class="event-item"><strong>Leadership Workshop</strong><div class="small-muted">Nov 14, 2025 — Kampala</div></li>
-            <li class="event-item"><strong>Regional Camp</strong><div class="small-muted">Dec 5–7, 2025 — (Details coming)</div></li>
-          </ul>
+  <section id="prayer-requests">
+    <h2>Submit Prayer Requests</h2>
+    <p>[Placeholder for prayer request form]</p>
+  </section>
 
-          <div style="margin-top:1rem">
-            <h4>Embed YouTube</h4>
-            <div class="yt-video card" style="margin-top:.4rem">
-              <!-- Example embedded video; replace src with your channel's video -->
-              <iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
-          </div>
+  <section id="prayer-letter">
+    <h2>Monthly Prayer Letter</h2>
+    <p>[Placeholder for monthly prayer letter updates]</p>
+  </section>
 
-          <div style="margin-top:1rem">
-            <h4>Donate</h4>
-            <p class="small-muted">Support our ministries. (Placeholders for payment providers.)</p>
-            <div style="display:flex;flex-direction:column;gap:.5rem;margin-top:.6rem">
-              <button class="btn" id="donate" onclick="alert('Placeholder: Integrate Flutterwave/PayPal/Mpesa here')">Donate via Flutterwave / PayPal</button>
-              <button style="background:#fff;border:1px solid #e6eefb;padding:.5rem;border-radius:8px" onclick="alert('Placeholder: mobile money integration')">Donate via Mobile Money</button>
-            </div>
-          </div>
-        </div>
+  <section id="resources">
+    <h2>Resources on Prayer & Spiritual Discipline</h2>
+    <p>[Placeholder for downloadable resources and articles]</p>
+  </section>
 
-        <div class="card" style="margin-top:1rem">
-          <h4>Announcements & Features</h4>
-          <p class="small-muted">Latest updates and feature highlights (placeholder).</p>
-          <div style="margin-top:.6rem" class="placeholder">Announcement stream (coming soon)</div>
-        </div>
-      </aside>
+  <section id="bible-games">
+    <h2>Bible Games</h2>
+    <p>[Placeholder for fun and educational Bible games]</p>
+  </section>
 
-    </section>
+  <section id="quizzes">
+    <h2>Short Quizzes</h2>
+    <p>[Placeholder for short Bible and faith quizzes]</p>
+  </section>
 
-    <section id="videos" class="card" style="margin-top:1rem">
-      <h2>Featured Videos</h2>
-      <p class="muted">Latest devotionals and testimonies from our channel.</p>
-      <div style="margin-top:.8rem">
-        <div class="yt-video">
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Featured video" frameborder="0" allowfullscreen></iframe>
-        </div>
-      </div>
-    </section>
+  <section id="counselling">
+    <h2>Counselling Platforms</h2>
+    <p>[Placeholder for counselling contact links]</p>
+  </section>
 
-    <section id="shop" style="margin-top:1rem">
-      <div class="card">
-        <h2>Sell Books</h2>
-        <p class="muted">A simple shop to sell ministry books and devotionals. (Placeholder store — WooCommerce or a simple "Buy Now" link can be added.)</p>
-        <div class="shop-grid" style="margin-top:.8rem">
-          <div class="shop-item">
-            <h4>"Growing in Prayer" — Paperback</h4>
-            <p class="small-muted">A short guide to daily prayer (placeholder).</p>
-            <div style="display:flex;gap:.5rem;margin-top:.6rem">
-              <button class="btn" onclick="alert('Placeholder: Add to cart')">Buy ₵ 20</button>
-              <button style="background:#fff;border:1px solid #e6eefb;padding:.45rem;border-radius:8px" onclick="alert('Placeholder: View details')">Details</button>
-            </div>
-          </div>
+  <section id="donations">
+    <h2>Receive Donations</h2>
+    <p>[Placeholder for donation information or button]</p>
+  </section>
 
-          <div class="shop-item">
-            <h4>"Disciplines of the Disciple" — eBook</h4>
-            <p class="small-muted">PDF download (placeholder).</p>
-            <div style="display:flex;gap:.5rem;margin-top:.6rem">
-              <button class="btn" onclick="alert('Placeholder: Buy & download')">Buy ₵ 10</button>
-              <button style="background:#fff;border:1px solid #e6eefb;padding:.45rem;border-radius:8px" onclick="alert('Placeholder: Preview')">Preview</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+  <section id="events">
+    <h2>Announcements, Events & Features</h2>
+    <p>[Placeholder for events and announcements]</p>
+  </section>
 
-    <section id="forums" style="margin-top:1rem">
-      <div class="card">
-        <h2>Discussion Forums</h2>
-        <p class="muted">A safe space for youth to discuss faith-related topics. Start with Disqus or a hosted forum, then move to a full solution (bbPress or Flarum).</p>
-        <div class="forum-preview" style="margin-top:.8rem">
-          <div class="placeholder">Forum placeholder — Sign up to join the discussion</div>
-          <div style="display:flex;gap:.6rem;margin-top:.6rem">
-            <button class="btn" onclick="alert('Placeholder: Sign up / Login')">Sign up</button>
-            <button style="background:#fff;border:1px solid #e6eefb;padding:.45rem;border-radius:8px" onclick="alert('Placeholder: Visit forum (coming soon)')">Visit Forum</button>
-          </div>
-        </div>
-      </div>
-    </section>
+  <section id="videos">
+    <h2>Embedded YouTube Videos</h2>
+    <p>[Placeholder for YouTube embedded content]</p>
+  </section>
 
-    <footer>
-      <div style="max-width:900px;margin:0 auto;">
-        <p style="margin:0"><strong>Youth for Christ Africa</strong> — Connecting youth across Africa through prayer and discipleship.</p>
-        <p class="small-muted" style="margin-top:.3rem">Built as a single-page prototype. Want this deployed to Netlify or converted to WordPress? I can generate deployment instructions or a WordPress theme next.</p>
-      </div>
-    </footer>
-  </main>
+  <section id="shop">
+    <h2>Sell Books</h2>
+    <p>[Placeholder for book listings]</p>
+  </section>
 
-  <script>
-    function fakeSubmitPrayer(e){
-      e.preventDefault();
-      const name = document.getElementById('prayer-name').value; 
-      const text = document.getElementById('prayer-text').value.trim();
-      const status = document.getElementById('prayer-status');
-      if(!text){ status.textContent = 'Please add a short prayer request before submitting.'; return false; }
-      status.textContent = 'Thanks! Your prayer request has been received (placeholder).';
-      // clear form after submit (simulate)
-      setTimeout(()=>{ document.getElementById('prayer-text').value=''; }, 900);
-      return false;
-    }
-    function fakeSubscribe(){
-      const email = document.getElementById('subscribe-email').value||'';
-      if(!email.includes('@')){ alert('Please enter a valid email (placeholder).'); return }
-      alert('Thanks for subscribing — (placeholder).');
-      document.getElementById('subscribe-email').value='';
-    }
-    function clearPrayerForm(){ document.getElementById('prayer-name').value=''; document.getElementById('prayer-country').value=''; document.getElementById('prayer-text').value=''; document.getElementById('private').checked=false; document.getElementById('prayer-status').textContent=''; }
-    function toggleMobileMenu(btn){ const menu = document.getElementById('mobileMenu'); if(menu.style.display==='none'){ menu.style.display='block'; btn.setAttribute('aria-expanded','true'); } else { menu.style.display='none'; btn.setAttribute('aria-expanded','false'); } }
-    // Smooth scroll for nav links
-    document.querySelectorAll('a[href^="#"]').forEach(a=>{ a.addEventListener('click', function(e){ e.preventDefault(); const id = this.getAttribute('href').slice(1); const el = document.getElementById(id); if(el) el.scrollIntoView({behavior:'smooth'}); }) });
-  </script>
+  <section id="forums">
+    <h2>Discussion Forums</h2>
+    <p>[Placeholder for future community discussions]</p>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Youth for Christ Africa – Spiritual Formation Africa. All Rights Reserved.</p>
+  </footer>
 </body>
 </html>
