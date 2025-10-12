@@ -24,12 +24,11 @@
       display: block;
     }
 
-    /* ⬇️ Scroll cue overlay */
+    /* ⬇️ Scroll cue overlay (RIGHT-ALIGNED) */
     .scroll-cue {
       position: absolute;
-      left: 50%;
-      bottom: 18px;
-      transform: translateX(-50%);
+      right: 30px; /* aligned to the right */
+      bottom: 25px;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -45,15 +44,16 @@
     .scroll-cue.hide {
       opacity: 0;
       pointer-events: none;
-      transform: translateX(-50%) translateY(10px);
+      transform: translateY(10px);
     }
 
-    .scroll-cue:hover { opacity: 1; transform: translateX(-50%) translateY(-2px); }
+    .scroll-cue:hover { opacity: 1; transform: translateY(-2px); }
 
     .scroll-text {
       font-size: 0.9rem;
       letter-spacing: .06em;
       text-shadow: 0 2px 6px rgba(0,0,0,.4);
+      text-align: center;
     }
 
     /* Chevrons animation */
@@ -132,12 +132,13 @@
       header img { height: 160px; }
       .coordinator img { width: 160px; height: 160px; }
       .scroll-text { font-size: .85rem; }
+      .scroll-cue { right: 15px; bottom: 15px; }
     }
   </style>
 </head>
 <body>
 
-  <!-- 🎥 Video Section with animated scroll cue -->
+  <!-- 🎥 Video Section with right-aligned scroll cue -->
   <div class="video-container">
     <video autoplay muted loop playsinline>
       <source src="G21 LOGO INTRO.mp4" type="video/mp4">
@@ -152,7 +153,7 @@
         <span class="chevron"></span>
         <span class="chevron"></span>
       </div>
-      <div class="scroll-text">Scroll to explore</div>
+      <div class="scroll-text">Scroll<br>to explore</div>
     </a>
   </div>
 
@@ -208,9 +209,9 @@
   <section id="bible-games"><h2>Bible Games</h2><p>[Placeholder for fun and educational Bible games]</p></section>
   <section id="quizzes"><h2>Short Quizzes</h2><p>[Placeholder for short Bible and faith quizzes]</p></section>
   <section id="counselling"><h2>Counselling Platforms</h2><p>[Placeholder for counselling contact links]</p></section>
-  <section id="donations"><h2>Donate to Support the Ministry</h2><p>[Placeholder for donation information or button]</p></section>
+  <section id="donations"><h2>Donate to the Ministry</h2><p>[Placeholder for donation information or button]</p></section>
   <section id="events"><h2>Announcements, Events & Features</h2><p>[Placeholder for events and announcements]</p></section>
-  <section id="videos"><h2>Our YouTube Videos</h2><p>[Placeholder for YouTube embedded content]</p></section>
+  <section id="videos"><h2>Watch Our YouTube Videos</h2><p>[Placeholder for YouTube embedded content]</p></section>
   <section id="shop"><h2>Book Shop</h2><p>[Placeholder for book listings]</p></section>
   <section id="forums"><h2>Discussion Forums</h2><p>[Placeholder for future community discussions]</p></section>
 
@@ -227,6 +228,10 @@
       if (!hasScrolled && window.scrollY > 60) {
         scrollCue.classList.add('hide');
         hasScrolled = true;
+      }
+      if (hasScrolled && window.scrollY < 20) {
+        scrollCue.classList.remove('hide'); // reappear if user scrolls back to top
+        hasScrolled = false;
       }
     });
   </script>
