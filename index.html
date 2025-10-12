@@ -92,20 +92,20 @@
       background:#fff;
       border-bottom:3px solid #a52a2a;
       display:flex; align-items:center; justify-content:center; flex-direction:column;
-      padding:10px 5%; /* reduced vertical padding */
+      padding:10px 5%;
       text-align:center;
     }
     header img {
       height:200px;
       width:auto;
-      margin:5px 0; /* reduced space above and below logo */
+      margin:5px 0;
     }
     header h1 {
       font-size:1.8rem;
       color:#a52a2a;
       font-weight:bold;
       letter-spacing:.5px;
-      margin:5px 0 0 0; /* tighter spacing */
+      margin:5px 0 0 0;
     }
 
     /* 🔗 Navigation */
@@ -171,7 +171,7 @@
     </video>
 
     <!-- ⬇️ Scroll cue -->
-    <a href="#intro" class="scroll-cue" id="scrollCue" aria-label="Scroll down">
+    <a href="#topHeader" class="scroll-cue" id="scrollCue" aria-label="Scroll down">
       <div class="mouse"><div class="wheel"></div></div>
       <div class="chevrons">
         <span class="chevron"></span>
@@ -183,7 +183,7 @@
   </div>
 
   <!-- 🕊️ Header -->
-  <header>
+  <header id="topHeader">
     <img src="SF Logo.png" alt="YFCI Spiritual Formation Africa Logo" />
     <h1>Youth for Christ Africa – Spiritual Formation</h1>
   </header>
@@ -246,7 +246,10 @@
 
   <script>
     const scrollCue = document.getElementById('scrollCue');
+    const headerSection = document.getElementById('topHeader');
     let hasScrolled = false;
+
+    // Hide scroll cue when user scrolls
     window.addEventListener('scroll', () => {
       if (!hasScrolled && window.scrollY > 60) {
         scrollCue.classList.add('hide');
@@ -256,6 +259,12 @@
         scrollCue.classList.remove('hide');
         hasScrolled = false;
       }
+    });
+
+    // Smooth scroll to logo/header area
+    scrollCue.addEventListener('click', (e) => {
+      e.preventDefault();
+      headerSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
   </script>
 </body>
