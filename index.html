@@ -30,16 +30,31 @@
     }
 
     header img {
-      height: 140px; /* Increased size */
+      height: 200px; /* Larger logo size */
       width: auto;
-      margin-bottom: 10px;
+      margin-top: 15px;
     }
 
     header h1 {
-      font-size: 1.6rem;
+      font-size: 1.8rem;
       color: #a52a2a;
       font-weight: bold;
       letter-spacing: 0.5px;
+      margin-top: 10px;
+    }
+
+    .video-container {
+      background-color: #000;
+      text-align: center;
+      width: 100%;
+      max-height: 600px;
+      overflow: hidden;
+    }
+
+    .video-container video {
+      width: 100%;
+      height: auto;
+      display: block;
     }
 
     nav {
@@ -88,8 +103,8 @@
     }
 
     .coordinator img {
-      width: 200px; /* Increased image size */
-      height: 200px;
+      width: 220px;
+      height: 220px;
       border-radius: 10px;
       object-fit: cover;
       border: 3px solid #a52a2a;
@@ -106,7 +121,7 @@
 
     @media (max-width: 600px) {
       header img {
-        height: 110px; /* slightly smaller for mobile */
+        height: 160px;
       }
       .coordinator img {
         width: 160px;
@@ -116,11 +131,22 @@
   </style>
 </head>
 <body>
+
+  <!-- 🎥 Video Section -->
+  <div class="video-container">
+    <video autoplay muted loop playsinline>
+      <source src="G21 LOGO INTRO.mp4" type="video/mp4">
+      Your browser does not support HTML5 video.
+    </video>
+  </div>
+
+  <!-- 🕊️ Header with Logo -->
   <header>
     <img src="SF Logo.png" alt="YFCI Spiritual Formation Africa Logo" />
     <h1>Youth for Christ Africa – Spiritual Formation</h1>
   </header>
 
+  <!-- 🔗 Navigation Menu -->
   <nav>
     <a href="#prayer-requests">Prayer Requests</a>
     <a href="#prayer-letter">Prayer Letter</a>
@@ -135,6 +161,7 @@
     <a href="#forums">Forums</a>
   </nav>
 
+  <!-- 🌍 Intro Section -->
   <section id="intro">
     <h2>Welcome to Youth for Christ Africa – Spiritual Formation</h2>
     <p>
@@ -143,6 +170,7 @@
     </p>
   </section>
 
+  <!-- 👩🏾‍💼 Lead Coordinator Section -->
   <section id="coordinator">
     <h2>Lead Coordinator</h2>
     <div class="coordinator">
@@ -157,6 +185,7 @@
     </div>
   </section>
 
+  <!-- 🙏 Remaining Placeholder Sections -->
   <section id="prayer-requests">
     <h2>Submit Prayer Requests</h2>
     <p>[Placeholder for prayer request form]</p>
@@ -215,5 +244,6 @@
   <footer>
     <p>&copy; 2025 Youth for Christ Africa – Spiritual Formation Africa. All Rights Reserved.</p>
   </footer>
+
 </body>
 </html>
