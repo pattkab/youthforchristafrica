@@ -23,7 +23,7 @@
       width: 100%;
       height: 100%;
       transform: translate(-50%, -50%);
-      object-fit: cover; /* desktop: fill screen */
+      object-fit: cover;
     }
 
     /* 📱 On mobile: scale video to fit instead of crop */
@@ -38,11 +38,11 @@
         width: 100%;
         height: auto;
         transform: none;
-        object-fit: contain; /* show full video */
+        object-fit: contain;
       }
     }
 
-    /* ⬇️ Scroll cue (right-aligned, burgundy) */
+    /* ⬇️ Scroll cue */
     .scroll-cue {
       position: absolute;
       right: 30px;
@@ -87,15 +87,26 @@
       100%{opacity:0;transform:translateX(-50%) translateY(10px);}
     }
 
-    /* 🕊️ Header + Logo */
+    /* 🕊️ Header + Logo (reduced padding) */
     header {
       background:#fff;
       border-bottom:3px solid #a52a2a;
       display:flex; align-items:center; justify-content:center; flex-direction:column;
-      padding:20px 5%; text-align:center;
+      padding:10px 5%; /* reduced vertical padding */
+      text-align:center;
     }
-    header img { height:200px; width:auto; margin-top:15px; }
-    header h1 { font-size:1.8rem; color:#a52a2a; font-weight:bold; letter-spacing:.5px; margin-top:10px; }
+    header img {
+      height:200px;
+      width:auto;
+      margin:5px 0; /* reduced space above and below logo */
+    }
+    header h1 {
+      font-size:1.8rem;
+      color:#a52a2a;
+      font-weight:bold;
+      letter-spacing:.5px;
+      margin:5px 0 0 0; /* tighter spacing */
+    }
 
     /* 🔗 Navigation */
     nav { background-color:#a52a2a; text-align:center; padding:12px; flex-wrap:wrap; }
@@ -223,10 +234,10 @@
   <section id="bible-games"><h2>Bible Games</h2><p>[Placeholder for fun Bible games]</p></section>
   <section id="quizzes"><h2>Short Quizzes</h2><p>[Placeholder for quizzes]</p></section>
   <section id="counselling"><h2>Counselling Platforms</h2><p>[Placeholder for counselling info]</p></section>
-  <section id="donations"><h2>Donate</h2><p>[Placeholder for donation info]</p></section>
+  <section id="donations"><h2>Receive Donations</h2><p>[Placeholder for donation info]</p></section>
   <section id="events"><h2>Announcements & Events</h2><p>[Placeholder for upcoming events]</p></section>
   <section id="videos"><h2>Embedded YouTube Videos</h2><p>[Placeholder for YouTube content]</p></section>
-  <section id="shop"><h2>Book Shop</h2><p>[Placeholder for book listings]</p></section>
+  <section id="shop"><h2>Sell Books</h2><p>[Placeholder for book listings]</p></section>
   <section id="forums"><h2>Discussion Forums</h2><p>[Placeholder for community discussions]</p></section>
 
   <footer>
