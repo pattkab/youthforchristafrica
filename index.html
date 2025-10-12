@@ -72,17 +72,16 @@
       100%{opacity:0;transform:translateX(-50%) translateY(10px);}
     }
 
-    /* 🕊️ Header + Logo (ultra compact) */
+    /* 🕊️ Header + Logo (compact) */
     header {
       background:#fff;
       border-bottom:3px solid #a52a2a;
       display:flex; align-items:center; justify-content:center; flex-direction:column;
-      padding:4px 5%; /* reduced from 10px to 4px */
+      padding:4px 5%;
       text-align:center;
     }
     header img {
-      height:180px; width:auto;
-      margin:2px 0; /* nearly no extra white space */
+      height:180px; width:auto; margin:2px 0;
     }
     header h1 {
       font-size:1.7rem; color:#a52a2a; font-weight:bold;
@@ -112,6 +111,37 @@
       width:220px; height:220px; border-radius:10px; object-fit:cover;
       border:3px solid #a52a2a; box-shadow:0 4px 10px rgba(0,0,0,.15);
     }
+
+    /* 🎥 YouTube Button */
+    .youtube-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background-color: #a52a2a;
+      color: #fff;
+      padding: 14px 24px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.15);
+      margin-top: 10px;
+    }
+    .youtube-btn:hover {
+      background-color: #7a1e1e;
+      transform: translateY(-2px);
+    }
+    .youtube-icon {
+      background-color: #ff0000;
+      color: #fff;
+      font-weight: bold;
+      padding: 4px 7px;
+      border-radius: 4px;
+      font-size: 0.9rem;
+    }
+    #videos { text-align: center; }
 
     /* ⚓ Footer */
     footer { text-align:center; background:#a52a2a; color:#fff; padding:20px; margin-top:40px; }
@@ -211,11 +241,25 @@
   <section id="resources"><h2>Resources on Prayer & Spiritual Discipline</h2><p>[Placeholder for downloadable resources]</p></section>
   <section id="bible-games"><h2>Bible Games</h2><p>[Placeholder for fun Bible games]</p></section>
   <section id="quizzes"><h2>Short Quizzes</h2><p>[Placeholder for quizzes]</p></section>
-  <section id="counselling"><h2>Need Counselling?</h2><p>[Placeholder for counselling info]</p></section>
-  <section id="donations"><h2>Donate</h2><p>[Placeholder for donation info]</p></section>
+  <section id="counselling"><h2>Counselling Platforms</h2><p>[Placeholder for counselling info]</p></section>
+  <section id="donations"><h2>Receive Donations</h2><p>[Placeholder for donation info]</p></section>
   <section id="events"><h2>Announcements & Events</h2><p>[Placeholder for upcoming events]</p></section>
-  <section id="videos"><h2>Our YouTube Videos</h2><p>[Placeholder for YouTube content]</p></section>
-  <section id="shop"><h2>Bookshop</h2><p>[Placeholder for book listings]</p></section>
+
+  <!-- 🎥 Embedded YouTube Videos -->
+  <section id="videos">
+    <h2>Embedded YouTube Videos</h2>
+    <p>Watch teachings, prayer sessions, and devotionals on our official YouTube channel:</p>
+
+    <!-- Centered YouTube Channel Button -->
+    <a href="https://www.youtube.com/@yfcispiritualformationafrica" 
+       target="_blank" 
+       class="youtube-btn">
+      <span class="youtube-icon">▶</span>
+      Visit YFCI Spiritual Formation Africa on YouTube
+    </a>
+  </section>
+
+  <section id="shop"><h2>Sell Books</h2><p>[Placeholder for book listings]</p></section>
   <section id="forums"><h2>Discussion Forums</h2><p>[Placeholder for community discussions]</p></section>
 
   <footer>
@@ -227,7 +271,6 @@
     const headerSection = document.getElementById('topHeader');
     let hasScrolled = false;
 
-    // Hide scroll cue when user scrolls
     window.addEventListener('scroll', () => {
       if (!hasScrolled && window.scrollY > 60) {
         scrollCue.classList.add('hide');
@@ -239,7 +282,6 @@
       }
     });
 
-    // Smooth scroll to logo/header area
     scrollCue.addEventListener('click', (e) => {
       e.preventDefault();
       headerSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
