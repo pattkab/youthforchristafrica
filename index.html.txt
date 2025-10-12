@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spiritual Formation Africa</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    function submitQuiz() {
+      let score = 0;
+      const answers = {q1: "b", q2: "a", q3: "c"};
+      for (let q in answers) {
+        const chosen = document.querySelector(`input[name=${q}]:checked`);
+        if (chosen && chosen.value === answers[q]) score++;
+      }
+      document.getElementById("quiz-result").innerText = "You scored " + score + "/3";
+    }
+    function toggleDonationForm() {
+      document.getElementById("donation-modal").classList.toggle("hidden");
+    }
+  </script>
+</head>
+<body class="font-sans text-gray-800">
+
+  <!-- Navbar -->
+  <nav class="fixed top-0 left-0 w-full bg-white shadow z-50">
+    <div class="max-w-7xl mx-auto flex justify-between items-center p-4">
+      <h1 class="text-xl font-bold text-blue-700">Spiritual Formation Africa</h1>
+      <div class="space-x-4">
+        <a href="#stories" class="hover:text-blue-600">Stories</a>
+        <a href="#prayer" class="hover:text-blue-600">Prayer</a>
+        <a href="#games" class="hover:text-blue-600">Games</a>
+        <a href="#quiz" class="hover:text-blue-600">Quiz</a>
+        <a href="#counselling" class="hover:text-blue-600">Counselling</a>
+        <a href="#donate" class="hover:text-blue-600">Donate</a>
+        <a href="#announcements" class="hover:text-blue-600">News</a>
+        <a href="#shop" class="hover:text-blue-600">Shop</a>
+        <a href="#forum" class="hover:text-blue-600">Forum</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero / Stories -->
+  <section id="stories" class="pt-24 bg-gray-100 min-h-screen flex flex-col items-center justify-center">
+    <h2 class="text-3xl font-bold mb-6 text-blue-800">Christian Stories</h2>
+    <p class="max-w-2xl text-center mb-6">“The Lord is my shepherd; I shall not want...” Here you can read inspiring testimonies of faith, transformation, and resilience in Christ.</p>
+    <button class="px-6 py-2 bg-blue-700 text-white rounded-lg">Read More Stories</button>
+  </section>
+
+  <!-- Prayer Requests -->
+  <section id="prayer" class="py-16 bg-white">
+    <div class="max-w-3xl mx-auto text-center">
+      <h2 class="text-2xl font-bold mb-4 text-blue-800">Submit a Prayer Request</h2>
+      <form class="space-y-4" name="prayer-requests" method="POST" data-netlify="true">
+        <input type="text" name="name" placeholder="Your Name" class="w-full border p-2 rounded">
+        <input type="email" name="email" placeholder="Your Email" class="w-full border p-2 rounded">
+        <textarea name="request" placeholder="Your Prayer Request" class="w-full border p-2 rounded"></textarea>
+        <button type="submit" class="px-6 py-2 bg-blue-700 text-white rounded-lg">Send</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Games -->
+  <section id="games" class="py-16 bg-gray-100 text-center">
+    <h2 class="text-2xl font-bold mb-2 text-blue-800">Bible Games</h2>
+    <p>🎮 Coming Soon...</p>
+  </section>
+
+  <!-- Quiz -->
+  <section id="quiz" class="py-16 bg-white text-center">
+    <h2 class="text-2xl font-bold mb-6 text-blue-800">Bible Quiz</h2>
+    <form class="space-y-4">
+      <div>
+        <p>1. Who built the ark?</p>
+        <label><input type="radio" name="q1" value="a"> Moses</label>
+        <label><input type="radio" name="q1" value="b"> Noah</label>
+        <label><input type="radio" name="q1" value="c"> David</label>
+      </div>
+      <div>
+        <p>2. Where was Jesus born?</p>
+        <label><input type="radio" name="q2" value="a"> Bethlehem</label>
+        <label><input type="radio" name="q2" value="b"> Jerusalem</label>
+        <label><input type="radio" name="q2" value="c"> Nazareth</label>
+      </div>
+      <div>
+        <p>3. How many disciples did Jesus have?</p>
+        <label><input type="radio" name="q3" value="a"> 10</label>
+        <label><input type="radio" name="q3" value="b"> 70</label>
+        <label><input type="radio" name="q3" value="c"> 12</label>
+      </div>
+      <button type="button" onclick="submitQuiz()" class="px-6 py-2 bg-blue-700 text-white rounded-lg">Submit</button>
+    </form>
+    <p id="quiz-result" class="mt-4 font-bold"></p>
+  </section>
+
+  <!-- Counselling -->
+  <section id="counselling" class="py-16 bg-gray-100 text-center">
+    <h2 class="text-2xl font-bold mb-2 text-blue-800">Counselling Platform</h2>
+    <p>🧑‍🤝‍🧑 Coming Soon...</p>
+  </section>
+
+  <!-- Donate -->
+  <section id="donate" class="py-16 bg-white text-center">
+    <h2 class="text-2xl font-bold mb-4 text-blue-800">Support Us</h2>
+    <button onclick="toggleDonationForm()" class="px-6 py-2 bg-green-600 text-white rounded-lg">Donate</button>
+  </section>
+
+  <!-- Donation Modal -->
+  <div id="donation-modal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+    <div class="bg-white p-6 rounded-lg max-w-md w-full">
+      <h3 class="text-xl font-bold mb-4">Donation Form</h3>
+      <form class="space-y-3" name="donations" method="POST" data-netlify="true">
+        <input type="text" name="name" placeholder="Your Name" class="w-full border p-2 rounded">
+        <input type="email" name="email" placeholder="Your Email" class="w-full border p-2 rounded">
+        <input type="number" name="amount" placeholder="Amount" class="w-full border p-2 rounded">
+        <button type="submit" class="w-full py-2 bg-green-600 text-white rounded">Donate</button>
+      </form>
+      <button onclick="toggleDonationForm()" class="mt-4 text-red-600">Close</button>
+    </div>
+  </div>
+
+  <!-- Announcements -->
+  <section id="announcements" class="py-16 bg-gray-100 text-center">
+    <h2 class="text-2xl font-bold mb-4 text-blue-800">Announcements & Videos</h2>
+    <ul class="mb-6">
+      <li>📢 Sunday Service at 10AM</li>
+      <li>📢 Youth Fellowship on Saturday</li>
+    </ul>
+    <div class="max-w-xl mx-auto">
+      <iframe class="w-full h-64" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video"></iframe>
+    </div>
+  </section>
+
+  <!-- Shop -->
+  <section id="shop" class="py-16 bg-white text-center">
+    <h2 class="text-2xl font-bold mb-6 text-blue-800">Christian Bookstore</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+      <div class="border p-4 rounded shadow">
+        <h3 class="font-bold">Daily Devotions</h3>
+        <p>$10</p>
+        <button class="mt-2 px-4 py-1 bg-blue-700 text-white rounded">Buy</button>
+      </div>
+      <div class="border p-4 rounded shadow">
+        <h3 class="font-bold">Bible Study Guide</h3>
+        <p>$15</p>
+        <button class="mt-2 px-4 py-1 bg-blue-700 text-white rounded">Buy</button>
+      </div>
+      <div class="border p-4 rounded shadow">
+        <h3 class="font-bold">Christian Living</h3>
+        <p>$20</p>
+        <button class="mt-2 px-4 py-1 bg-blue-700 text-white rounded">Buy</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Forum -->
+  <section id="forum" class="py-16 bg-gray-100 text-center">
+    <h2 class="text-2xl font-bold mb-2 text-blue-800">Discussion Forum</h2>
+    <p>💬 Coming Soon...</p>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-blue-800 text-white text-center p-6">
+    <p>&copy; 2025 Spiritual Formation Africa. All Rights Reserved.</p>
+  </footer>
+
+</body>
+</html>
