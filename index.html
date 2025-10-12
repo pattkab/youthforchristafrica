@@ -9,13 +9,12 @@
 
     body { background-color: #f5f5f5; color: #333; line-height: 1.6; scroll-behavior: smooth; }
 
-    /* 🎥 Video hero (FULL HEIGHT) */
+    /* 🎥 Video hero (desktop default = full height) */
     .video-container {
       position: relative;
       background-color: #000;
-      text-align: center;
       width: 100%;
-      height: 100vh; /* fills full browser height */
+      height: 100vh; /* fills full browser height on desktop */
       overflow: hidden;
     }
     .video-container video {
@@ -25,7 +24,7 @@
       min-width: 100%;
       min-height: 100%;
       transform: translate(-50%, -50%);
-      object-fit: cover; /* ensures full coverage of frame */
+      object-fit: cover; /* cover frame without bars */
     }
 
     /* ⬇️ Scroll cue overlay (RIGHT-ALIGNED, BURGUNDY COLOR) */
@@ -37,7 +36,7 @@
       flex-direction: column;
       align-items: center;
       gap: 8px;
-      color: #a52a2a;
+      color: #a52a2a; /* Burgundy */
       text-decoration: none;
       opacity: 0.95;
       padding: 6px 10px;
@@ -45,23 +44,10 @@
       transition: opacity .5s ease, transform .3s ease;
       user-select: none;
     }
-    .scroll-cue.hide {
-      opacity: 0;
-      pointer-events: none;
-      transform: translateY(10px);
-    }
-
+    .scroll-cue.hide { opacity: 0; pointer-events: none; transform: translateY(10px); }
     .scroll-cue:hover { opacity: 1; transform: translateY(-2px); }
+    .scroll-text { font-size: 0.9rem; letter-spacing: .06em; text-align: center; font-weight: 600; text-shadow: 0 2px 6px rgba(255,255,255,0.4); }
 
-    .scroll-text {
-      font-size: 0.9rem;
-      letter-spacing: .06em;
-      text-align: center;
-      font-weight: 600;
-      text-shadow: 0 2px 6px rgba(255,255,255,0.4);
-    }
-
-    /* Chevrons animation */
     .chevrons { display: flex; flex-direction: column; align-items: center; gap: 2px; }
     .chevron {
       width: 18px; height: 18px;
@@ -72,25 +58,16 @@
     }
     .chevron:nth-child(2) { animation-delay: .2s; opacity: .7; }
     .chevron:nth-child(3) { animation-delay: .4s; opacity: .55; }
-
     @keyframes bounce {
       0%, 20%, 50%, 80%, 100% { transform: translateY(0) rotate(45deg); }
       40% { transform: translateY(6px) rotate(45deg); }
       60% { transform: translateY(3px) rotate(45deg); }
     }
 
-    /* Mouse animation */
-    .mouse {
-      width: 22px; height: 36px;
-      border: 2px solid #a52a2a;
-      border-radius: 14px;
-      position: relative;
-      opacity: .9;
-    }
+    .mouse { width: 22px; height: 36px; border: 2px solid #a52a2a; border-radius: 14px; position: relative; opacity: .9; }
     .wheel {
       position: absolute; top: 6px; left: 50%; transform: translateX(-50%);
-      width: 3px; height: 6px; background: #a52a2a; border-radius: 2px;
-      animation: wheel 1.8s infinite;
+      width: 3px; height: 6px; background: #a52a2a; border-radius: 2px; animation: wheel 1.8s infinite;
     }
     @keyframes wheel {
       0% { opacity: 0; transform: translateX(-50%) translateY(0); }
@@ -109,7 +86,7 @@
     header h1 { font-size: 1.8rem; color: #a52a2a; font-weight: bold; letter-spacing: .5px; margin-top: 10px; }
 
     /* 🔗 Navigation */
-    nav { background-color: #a52a2a; text-align: center; padding: 10px; }
+    nav { background-color: #a52a2a; text-align: center; padding: 12px; }
     nav a { color: #fff; margin: 0 15px; text-decoration: none; font-weight: bold; }
     nav a:hover { text-decoration: underline; }
 
@@ -135,17 +112,45 @@
     /* ⚓ Footer */
     footer { text-align: center; background: #a52a2a; color: #fff; padding: 20px; margin-top: 40px; }
 
-    @media (max-width: 600px) {
-      header img { height: 160px; }
-      .coordinator img { width: 160px; height: 160px; }
-      .scroll-text { font-size: .85rem; }
-      .scroll-cue { right: 15px; bottom: 15px; }
+    /* ─────────────────────────────────────────────────────────────
+       📱 Responsive: tablets and phones
+       ───────────────────────────────────────────────────────────── */
+
+    /* Tablet & down */
+    @media (max-width: 992px) {
+      .video-container { height: 80vh; } /* slightly shorter on smaller screens */
+      header img { height: 180px; }
+      header h1 { font-size: 1.6rem; }
+      nav { padding: 10px; }
+      nav a { margin: 6px 12px; font-size: 0.95rem; display: inline-block; }
+      section { margin: 16px; padding: 30px 5%; }
+    }
+
+    /* Large phones & small tablets */
+    @media (max-width: 768px) {
+      .video-container { height: 60vh; } /* improve initial viewport usability */
+      .scroll-cue { right: 16px; bottom: 16px; }
+      header img { height: 150px; }
+      header h1 { font-size: 1.35rem; }
+      nav { padding: 8px; }
+      nav a { margin: 6px 10px; font-size: 0.9rem; }
+      .coordinator img { width: 180px; height: 180px; }
+    }
+
+    /* Small phones */
+    @media (max-width: 480px) {
+      .video-container { height: 50vh; }
+      .scroll-text { font-size: 0.8rem; }
+      header img { height: 120px; }
+      header h1 { font-size: 1.05rem; }
+      nav a { margin: 4px 8px; font-size: 0.85rem; }
+      .coordinator img { width: 150px; height: 150px; }
     }
   </style>
 </head>
 <body>
 
-  <!-- 🎥 Full-height video section -->
+  <!-- 🎥 Full-height (responsive) video section -->
   <div class="video-container">
     <video autoplay muted loop playsinline>
       <source src="G21 LOGO INTRO.mp4" type="video/mp4">
@@ -171,7 +176,7 @@
   </header>
 
   <!-- 🔗 Navigation -->
-  <nav>
+  <nav aria-label="Primary">
     <a href="#prayer-requests">Prayer Requests</a>
     <a href="#prayer-letter">Prayer Letter</a>
     <a href="#resources">Resources</a>
@@ -216,10 +221,10 @@
   <section id="bible-games"><h2>Bible Games</h2><p>[Placeholder for fun and educational Bible games]</p></section>
   <section id="quizzes"><h2>Short Quizzes</h2><p>[Placeholder for short Bible and faith quizzes]</p></section>
   <section id="counselling"><h2>Counselling Platforms</h2><p>[Placeholder for counselling contact links]</p></section>
-  <section id="donations"><h2>Receive Donations</h2><p>[Placeholder for donation information or button]</p></section>
+  <section id="donations"><h2>Donate</h2><p>[Placeholder for donation information or button]</p></section>
   <section id="events"><h2>Announcements, Events & Features</h2><p>[Placeholder for events and announcements]</p></section>
-  <section id="videos"><h2>Embedded YouTube Videos</h2><p>[Placeholder for YouTube embedded content]</p></section>
-  <section id="shop"><h2>Sell Books</h2><p>[Placeholder for book listings]</p></section>
+  <section id="videos"><h2>Watch Our YouTube Videos</h2><p>[Placeholder for YouTube embedded content]</p></section>
+  <section id="shop"><h2>Book Shop</h2><p>[Placeholder for book listings]</p></section>
   <section id="forums"><h2>Discussion Forums</h2><p>[Placeholder for future community discussions]</p></section>
 
   <footer>
@@ -237,7 +242,7 @@
         hasScrolled = true;
       }
       if (hasScrolled && window.scrollY < 20) {
-        scrollCue.classList.remove('hide');
+        scrollCue.classList.remove('hide'); // reappear if user scrolls back to top
         hasScrolled = false;
       }
     });
