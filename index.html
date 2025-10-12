@@ -5,148 +5,164 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Youth for Christ Africa | Spiritual Formation</title>
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
 
-    body {
-      background-color: #f5f5f5;
-      color: #333;
-      line-height: 1.6;
-    }
+    body { background-color: #f5f5f5; color: #333; line-height: 1.6; scroll-behavior: smooth; }
 
-    header {
-      background: #fff;
-      border-bottom: 3px solid #a52a2a;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      padding: 20px 5%;
-      text-align: center;
-    }
-
-    header img {
-      height: 200px; /* Larger logo size */
-      width: auto;
-      margin-top: 15px;
-    }
-
-    header h1 {
-      font-size: 1.8rem;
-      color: #a52a2a;
-      font-weight: bold;
-      letter-spacing: 0.5px;
-      margin-top: 10px;
-    }
-
+    /* 🎥 Video hero */
     .video-container {
+      position: relative;
       background-color: #000;
       text-align: center;
       width: 100%;
-      max-height: 600px;
+      max-height: 70vh;
       overflow: hidden;
     }
-
     .video-container video {
       width: 100%;
       height: auto;
       display: block;
     }
 
-    nav {
-      background-color: #a52a2a;
-      text-align: center;
-      padding: 10px;
-    }
-
-    nav a {
+    /* ⬇️ Scroll cue overlay */
+    .scroll-cue {
+      position: absolute;
+      left: 50%;
+      bottom: 18px;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
       color: #fff;
-      margin: 0 15px;
       text-decoration: none;
-      font-weight: bold;
+      opacity: 0.9;
+      padding: 6px 10px;
+      border-radius: 999px;
+      transition: opacity .5s ease, transform .3s ease;
+      user-select: none;
+    }
+    .scroll-cue.hide {
+      opacity: 0;
+      pointer-events: none;
+      transform: translateX(-50%) translateY(10px);
     }
 
-    nav a:hover {
-      text-decoration: underline;
+    .scroll-cue:hover { opacity: 1; transform: translateX(-50%) translateY(-2px); }
+
+    .scroll-text {
+      font-size: 0.9rem;
+      letter-spacing: .06em;
+      text-shadow: 0 2px 6px rgba(0,0,0,.4);
     }
 
+    /* Chevrons animation */
+    .chevrons { display: flex; flex-direction: column; align-items: center; gap: 2px; }
+    .chevron {
+      width: 18px; height: 18px;
+      border-right: 2px solid #fff; border-bottom: 2px solid #fff;
+      transform: rotate(45deg);
+      opacity: .85;
+      animation: bounce 1.8s infinite;
+    }
+    .chevron:nth-child(2) { animation-delay: .2s; opacity: .7; }
+    .chevron:nth-child(3) { animation-delay: .4s; opacity: .55; }
+
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% { transform: translateY(0) rotate(45deg); }
+      40% { transform: translateY(6px) rotate(45deg); }
+      60% { transform: translateY(3px) rotate(45deg); }
+    }
+
+    /* Mouse animation */
+    .mouse {
+      width: 22px; height: 36px;
+      border: 2px solid #fff; border-radius: 14px;
+      position: relative; opacity: .9;
+    }
+    .wheel {
+      position: absolute; top: 6px; left: 50%; transform: translateX(-50%);
+      width: 3px; height: 6px; background: #fff; border-radius: 2px;
+      animation: wheel 1.8s infinite;
+    }
+    @keyframes wheel {
+      0% { opacity: 0; transform: translateX(-50%) translateY(0); }
+      30% { opacity: 1; }
+      100% { opacity: 0; transform: translateX(-50%) translateY(10px); }
+    }
+
+    /* 🕊️ Header + Logo */
+    header {
+      background: #fff;
+      border-bottom: 3px solid #a52a2a;
+      display: flex; align-items: center; justify-content: center; flex-direction: column;
+      padding: 20px 5%; text-align: center;
+    }
+    header img { height: 200px; width: auto; margin-top: 15px; }
+    header h1 { font-size: 1.8rem; color: #a52a2a; font-weight: bold; letter-spacing: .5px; margin-top: 10px; }
+
+    /* 🔗 Navigation */
+    nav { background-color: #a52a2a; text-align: center; padding: 10px; }
+    nav a { color: #fff; margin: 0 15px; text-decoration: none; font-weight: bold; }
+    nav a:hover { text-decoration: underline; }
+
+    /* 📦 Sections */
     section {
       padding: 40px 5%;
-      background-color: #fff;
-      margin: 20px auto;
-      border-radius: 10px;
-      max-width: 900px;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      background-color: #fff; margin: 20px auto; border-radius: 10px;
+      max-width: 900px; box-shadow: 0 2px 6px rgba(0,0,0,.1);
     }
+    h2 { color: #a52a2a; margin-bottom: 15px; }
+    p { margin-bottom: 15px; }
 
-    h2 {
-      color: #a52a2a;
-      margin-bottom: 15px;
-    }
-
-    p {
-      margin-bottom: 15px;
-    }
-
+    /* 👩🏾‍💼 Lead Coordinator */
     .coordinator {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-      flex-wrap: wrap;
-      justify-content: center;
-      margin-top: 30px;
-      text-align: center;
+      display: flex; align-items: center; gap: 20px; flex-wrap: wrap;
+      justify-content: center; margin-top: 30px; text-align: center;
     }
-
     .coordinator img {
-      width: 220px;
-      height: 220px;
-      border-radius: 10px;
-      object-fit: cover;
-      border: 3px solid #a52a2a;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      width: 220px; height: 220px; border-radius: 10px; object-fit: cover;
+      border: 3px solid #a52a2a; box-shadow: 0 4px 10px rgba(0,0,0,.15);
     }
 
-    footer {
-      text-align: center;
-      background: #a52a2a;
-      color: #fff;
-      padding: 20px;
-      margin-top: 40px;
-    }
+    /* ⚓ Footer */
+    footer { text-align: center; background: #a52a2a; color: #fff; padding: 20px; margin-top: 40px; }
 
     @media (max-width: 600px) {
-      header img {
-        height: 160px;
-      }
-      .coordinator img {
-        width: 160px;
-        height: 160px;
-      }
+      header img { height: 160px; }
+      .coordinator img { width: 160px; height: 160px; }
+      .scroll-text { font-size: .85rem; }
     }
   </style>
 </head>
 <body>
 
-  <!-- 🎥 Video Section -->
+  <!-- 🎥 Video Section with animated scroll cue -->
   <div class="video-container">
     <video autoplay muted loop playsinline>
       <source src="G21 LOGO INTRO.mp4" type="video/mp4">
       Your browser does not support HTML5 video.
     </video>
+
+    <!-- ⬇️ Scroll cue -->
+    <a href="#intro" class="scroll-cue" id="scrollCue" aria-label="Scroll down">
+      <div class="mouse"><div class="wheel"></div></div>
+      <div class="chevrons">
+        <span class="chevron"></span>
+        <span class="chevron"></span>
+        <span class="chevron"></span>
+      </div>
+      <div class="scroll-text">Scroll to explore</div>
+    </a>
   </div>
 
-  <!-- 🕊️ Header with Logo -->
+  <!-- 🕊️ Header -->
   <header>
     <img src="SF Logo.png" alt="YFCI Spiritual Formation Africa Logo" />
     <h1>Youth for Christ Africa – Spiritual Formation</h1>
   </header>
 
-  <!-- 🔗 Navigation Menu -->
+  <!-- 🔗 Navigation -->
   <nav>
     <a href="#prayer-requests">Prayer Requests</a>
     <a href="#prayer-letter">Prayer Letter</a>
@@ -161,7 +177,7 @@
     <a href="#forums">Forums</a>
   </nav>
 
-  <!-- 🌍 Intro Section -->
+  <!-- 🌍 Intro -->
   <section id="intro">
     <h2>Welcome to Youth for Christ Africa – Spiritual Formation</h2>
     <p>
@@ -170,7 +186,7 @@
     </p>
   </section>
 
-  <!-- 👩🏾‍💼 Lead Coordinator Section -->
+  <!-- 👩🏾‍💼 Lead Coordinator -->
   <section id="coordinator">
     <h2>Lead Coordinator</h2>
     <div class="coordinator">
@@ -186,64 +202,33 @@
   </section>
 
   <!-- 🙏 Remaining Placeholder Sections -->
-  <section id="prayer-requests">
-    <h2>Submit Prayer Requests</h2>
-    <p>[Placeholder for prayer request form]</p>
-  </section>
-
-  <section id="prayer-letter">
-    <h2>Monthly Prayer Letter</h2>
-    <p>[Placeholder for monthly prayer letter updates]</p>
-  </section>
-
-  <section id="resources">
-    <h2>Resources on Prayer & Spiritual Discipline</h2>
-    <p>[Placeholder for downloadable resources and articles]</p>
-  </section>
-
-  <section id="bible-games">
-    <h2>Bible Games</h2>
-    <p>[Placeholder for fun and educational Bible games]</p>
-  </section>
-
-  <section id="quizzes">
-    <h2>Short Quizzes</h2>
-    <p>[Placeholder for short Bible and faith quizzes]</p>
-  </section>
-
-  <section id="counselling">
-    <h2>Counselling Platforms</h2>
-    <p>[Placeholder for counselling contact links]</p>
-  </section>
-
-  <section id="donations">
-    <h2>Receive Donations</h2>
-    <p>[Placeholder for donation information or button]</p>
-  </section>
-
-  <section id="events">
-    <h2>Announcements, Events & Features</h2>
-    <p>[Placeholder for events and announcements]</p>
-  </section>
-
-  <section id="videos">
-    <h2>Embedded YouTube Videos</h2>
-    <p>[Placeholder for YouTube embedded content]</p>
-  </section>
-
-  <section id="shop">
-    <h2>Sell Books</h2>
-    <p>[Placeholder for book listings]</p>
-  </section>
-
-  <section id="forums">
-    <h2>Discussion Forums</h2>
-    <p>[Placeholder for future community discussions]</p>
-  </section>
+  <section id="prayer-requests"><h2>Submit Prayer Requests</h2><p>[Placeholder for prayer request form]</p></section>
+  <section id="prayer-letter"><h2>Monthly Prayer Letter</h2><p>[Placeholder for monthly prayer letter updates]</p></section>
+  <section id="resources"><h2>Resources on Prayer & Spiritual Discipline</h2><p>[Placeholder for downloadable resources and articles]</p></section>
+  <section id="bible-games"><h2>Bible Games</h2><p>[Placeholder for fun and educational Bible games]</p></section>
+  <section id="quizzes"><h2>Short Quizzes</h2><p>[Placeholder for short Bible and faith quizzes]</p></section>
+  <section id="counselling"><h2>Counselling Platforms</h2><p>[Placeholder for counselling contact links]</p></section>
+  <section id="donations"><h2>Donate to Support the Ministry</h2><p>[Placeholder for donation information or button]</p></section>
+  <section id="events"><h2>Announcements, Events & Features</h2><p>[Placeholder for events and announcements]</p></section>
+  <section id="videos"><h2>Our YouTube Videos</h2><p>[Placeholder for YouTube embedded content]</p></section>
+  <section id="shop"><h2>Book Shop</h2><p>[Placeholder for book listings]</p></section>
+  <section id="forums"><h2>Discussion Forums</h2><p>[Placeholder for future community discussions]</p></section>
 
   <footer>
     <p>&copy; 2025 Youth for Christ Africa – Spiritual Formation Africa. All Rights Reserved.</p>
   </footer>
 
+  <!-- ✨ Script to hide scroll cue on scroll -->
+  <script>
+    const scrollCue = document.getElementById('scrollCue');
+    let hasScrolled = false;
+
+    window.addEventListener('scroll', () => {
+      if (!hasScrolled && window.scrollY > 60) {
+        scrollCue.classList.add('hide');
+        hasScrolled = true;
+      }
+    });
+  </script>
 </body>
 </html>
