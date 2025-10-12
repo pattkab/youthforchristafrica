@@ -24,18 +24,18 @@
       display: block;
     }
 
-    /* ⬇️ Scroll cue overlay (RIGHT-ALIGNED) */
+    /* ⬇️ Scroll cue overlay (RIGHT-ALIGNED, BURGUNDY COLOR) */
     .scroll-cue {
       position: absolute;
-      right: 30px; /* aligned to the right */
+      right: 30px;
       bottom: 25px;
       display: flex;
       flex-direction: column;
       align-items: center;
       gap: 8px;
-      color: #fff;
+      color: #a52a2a; /* Burgundy */
       text-decoration: none;
-      opacity: 0.9;
+      opacity: 0.95;
       padding: 6px 10px;
       border-radius: 999px;
       transition: opacity .5s ease, transform .3s ease;
@@ -52,15 +52,16 @@
     .scroll-text {
       font-size: 0.9rem;
       letter-spacing: .06em;
-      text-shadow: 0 2px 6px rgba(0,0,0,.4);
       text-align: center;
+      font-weight: 600;
+      text-shadow: 0 2px 6px rgba(255,255,255,0.4);
     }
 
     /* Chevrons animation */
     .chevrons { display: flex; flex-direction: column; align-items: center; gap: 2px; }
     .chevron {
       width: 18px; height: 18px;
-      border-right: 2px solid #fff; border-bottom: 2px solid #fff;
+      border-right: 2px solid #a52a2a; border-bottom: 2px solid #a52a2a;
       transform: rotate(45deg);
       opacity: .85;
       animation: bounce 1.8s infinite;
@@ -77,12 +78,14 @@
     /* Mouse animation */
     .mouse {
       width: 22px; height: 36px;
-      border: 2px solid #fff; border-radius: 14px;
-      position: relative; opacity: .9;
+      border: 2px solid #a52a2a; /* Burgundy */
+      border-radius: 14px;
+      position: relative;
+      opacity: .9;
     }
     .wheel {
       position: absolute; top: 6px; left: 50%; transform: translateX(-50%);
-      width: 3px; height: 6px; background: #fff; border-radius: 2px;
+      width: 3px; height: 6px; background: #a52a2a; border-radius: 2px;
       animation: wheel 1.8s infinite;
     }
     @keyframes wheel {
@@ -138,7 +141,7 @@
 </head>
 <body>
 
-  <!-- 🎥 Video Section with right-aligned scroll cue -->
+  <!-- 🎥 Video Section with right-aligned burgundy scroll cue -->
   <div class="video-container">
     <video autoplay muted loop playsinline>
       <source src="G21 LOGO INTRO.mp4" type="video/mp4">
@@ -209,7 +212,7 @@
   <section id="bible-games"><h2>Bible Games</h2><p>[Placeholder for fun and educational Bible games]</p></section>
   <section id="quizzes"><h2>Short Quizzes</h2><p>[Placeholder for short Bible and faith quizzes]</p></section>
   <section id="counselling"><h2>Counselling Platforms</h2><p>[Placeholder for counselling contact links]</p></section>
-  <section id="donations"><h2>Donate to the Ministry</h2><p>[Placeholder for donation information or button]</p></section>
+  <section id="donations"><h2>Donate</h2><p>[Placeholder for donation information or button]</p></section>
   <section id="events"><h2>Announcements, Events & Features</h2><p>[Placeholder for events and announcements]</p></section>
   <section id="videos"><h2>Watch Our YouTube Videos</h2><p>[Placeholder for YouTube embedded content]</p></section>
   <section id="shop"><h2>Book Shop</h2><p>[Placeholder for book listings]</p></section>
