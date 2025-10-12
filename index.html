@@ -20,20 +20,26 @@
 
     header {
       background: #fff;
-      border-bottom: 2px solid #a52a2a;
+      border-bottom: 3px solid #a52a2a;
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      padding: 10px 5%;
+      justify-content: center;
+      flex-direction: column;
+      padding: 20px 5%;
+      text-align: center;
     }
 
     header img {
-      height: 60px;
+      height: 140px; /* Increased size */
+      width: auto;
+      margin-bottom: 10px;
     }
 
     header h1 {
-      font-size: 1.2rem;
+      font-size: 1.6rem;
       color: #a52a2a;
+      font-weight: bold;
+      letter-spacing: 0.5px;
     }
 
     nav {
@@ -75,15 +81,19 @@
       display: flex;
       align-items: center;
       gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
       margin-top: 30px;
+      text-align: center;
     }
 
     .coordinator img {
-      width: 160px;
-      height: 160px;
+      width: 200px; /* Increased image size */
+      height: 200px;
       border-radius: 10px;
       object-fit: cover;
       border: 3px solid #a52a2a;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
     }
 
     footer {
@@ -93,12 +103,22 @@
       padding: 20px;
       margin-top: 40px;
     }
+
+    @media (max-width: 600px) {
+      header img {
+        height: 110px; /* slightly smaller for mobile */
+      }
+      .coordinator img {
+        width: 160px;
+        height: 160px;
+      }
+    }
   </style>
 </head>
 <body>
   <header>
     <img src="SF Logo.png" alt="YFCI Spiritual Formation Africa Logo" />
-    <h1>YFCI Spiritual Formation Africa</h1>
+    <h1>Youth for Christ Africa – Spiritual Formation</h1>
   </header>
 
   <nav>
@@ -130,8 +150,8 @@
       <div>
         <h3>Pastor Irene Aliso Kabagambe</h3>
         <p>
-          Pastor Irene leads the Spiritual Formation Africa initiative under Youth for Christ International. 
-          Her passion is to see youth across Africa experience deep transformation through prayer, mentorship, and Christ-centered living.
+          Lead Coordinator, Youth for Christ International – Spiritual Formation Africa.<br>
+          Passionate about guiding young people to deepen their relationship with Christ through prayer, mentorship, and spiritual discipline.
         </p>
       </div>
     </div>
