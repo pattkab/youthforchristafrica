@@ -8,7 +8,7 @@
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
     body { background-color: #f5f5f5; color: #333; line-height: 1.6; scroll-behavior: smooth; }
 
-    /* 🎥 Video hero (desktop full height) */
+    /* 🎥 Video hero */
     .video-container {
       position: relative;
       background-color: #000;
@@ -26,36 +26,23 @@
       object-fit: cover;
     }
 
-    /* 📱 On mobile: scale video to fit instead of crop */
+    /* 📱 Mobile scaling */
     @media (max-width: 768px) {
-      .video-container {
-        height: auto;
-      }
+      .video-container { height: auto; }
       .video-container video {
         position: relative;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: auto;
-        transform: none;
-        object-fit: contain;
+        top: 0; left: 0; width: 100%; height: auto;
+        transform: none; object-fit: contain;
       }
     }
 
     /* ⬇️ Scroll cue */
     .scroll-cue {
       position: absolute;
-      right: 30px;
-      bottom: 25px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 8px;
-      color: #a52a2a;
-      text-decoration: none;
-      opacity: 0.95;
-      padding: 6px 10px;
-      border-radius: 999px;
+      right: 30px; bottom: 25px;
+      display: flex; flex-direction: column; align-items: center;
+      gap: 8px; color: #a52a2a; text-decoration: none;
+      opacity: 0.95; padding: 6px 10px; border-radius: 999px;
       transition: opacity .5s ease, transform .3s ease;
       user-select: none;
     }
@@ -68,8 +55,7 @@
       width: 18px; height: 18px;
       border-right: 2px solid #a52a2a; border-bottom: 2px solid #a52a2a;
       transform: rotate(45deg);
-      opacity: .85;
-      animation: bounce 1.8s infinite;
+      opacity: .85; animation: bounce 1.8s infinite;
     }
     .chevron:nth-child(2){animation-delay:.2s;opacity:.7;}
     .chevron:nth-child(3){animation-delay:.4s;opacity:.55;}
@@ -78,7 +64,6 @@
       40%{transform:translateY(6px) rotate(45deg);}
       60%{transform:translateY(3px) rotate(45deg);}
     }
-
     .mouse { width:22px; height:36px; border:2px solid #a52a2a; border-radius:14px; position:relative; opacity:.9; }
     .wheel { position:absolute; top:6px; left:50%; transform:translateX(-50%); width:3px; height:6px; background:#a52a2a; border-radius:2px; animation:wheel 1.8s infinite; }
     @keyframes wheel {
@@ -87,45 +72,38 @@
       100%{opacity:0;transform:translateX(-50%) translateY(10px);}
     }
 
-    /* 🕊️ Header + Logo (reduced padding) */
+    /* 🕊️ Header + Logo (ultra compact) */
     header {
       background:#fff;
       border-bottom:3px solid #a52a2a;
       display:flex; align-items:center; justify-content:center; flex-direction:column;
-      padding:10px 5%;
+      padding:4px 5%; /* reduced from 10px to 4px */
       text-align:center;
     }
     header img {
-      height:200px;
-      width:auto;
-      margin:5px 0;
+      height:180px; width:auto;
+      margin:2px 0; /* nearly no extra white space */
     }
     header h1 {
-      font-size:1.8rem;
-      color:#a52a2a;
-      font-weight:bold;
-      letter-spacing:.5px;
-      margin:5px 0 0 0;
+      font-size:1.7rem; color:#a52a2a; font-weight:bold;
+      letter-spacing:.4px; margin:3px 0 0 0;
     }
 
     /* 🔗 Navigation */
-    nav { background-color:#a52a2a; text-align:center; padding:12px; flex-wrap:wrap; }
-    nav a { color:#fff; margin:0 15px; text-decoration:none; font-weight:bold; }
+    nav { background:#a52a2a; text-align:center; padding:10px; flex-wrap:wrap; }
+    nav a { color:#fff; margin:0 12px; text-decoration:none; font-weight:bold; }
     nav a:hover { text-decoration:underline; }
 
     /* 📦 Sections */
     section {
-      padding:40px 5%;
-      background-color:#fff;
-      margin:20px auto;
-      border-radius:10px;
-      max-width:900px;
+      padding:40px 5%; background:#fff; margin:20px auto;
+      border-radius:10px; max-width:900px;
       box-shadow:0 2px 6px rgba(0,0,0,.1);
     }
     h2 { color:#a52a2a; margin-bottom:15px; }
     p { margin-bottom:15px; }
 
-    /* 👩🏾‍💼 Lead Coordinator */
+    /* 👩🏾‍💼 Coordinator */
     .coordinator {
       display:flex; align-items:center; gap:20px; flex-wrap:wrap;
       justify-content:center; margin-top:30px; text-align:center;
@@ -140,22 +118,22 @@
 
     /* 📱 Responsive tweaks */
     @media (max-width: 992px) {
-      header img { height:180px; }
-      header h1 { font-size:1.6rem; }
+      header img { height:160px; }
+      header h1 { font-size:1.5rem; }
       nav a { margin:6px 10px; font-size:0.95rem; display:inline-block; }
       section { margin:16px; padding:30px 5%; }
     }
     @media (max-width: 768px) {
-      header img { height:150px; }
-      header h1 { font-size:1.35rem; }
+      header img { height:130px; }
+      header h1 { font-size:1.25rem; }
       nav { padding:8px; }
       nav a { margin:6px 8px; font-size:0.9rem; }
       .coordinator img { width:180px; height:180px; }
     }
     @media (max-width: 480px) {
       .scroll-text { font-size:0.8rem; }
-      header img { height:120px; }
-      header h1 { font-size:1.05rem; }
+      header img { height:110px; }
+      header h1 { font-size:1rem; }
       nav a { margin:4px 6px; font-size:0.85rem; }
       .coordinator img { width:150px; height:150px; }
     }
@@ -163,7 +141,7 @@
 </head>
 <body>
 
-  <!-- 🎥 Responsive video section -->
+  <!-- 🎥 Video Section -->
   <div class="video-container">
     <video autoplay muted loop playsinline>
       <source src="G21 LOGO INTRO.mp4" type="video/mp4">
@@ -234,10 +212,10 @@
   <section id="bible-games"><h2>Bible Games</h2><p>[Placeholder for fun Bible games]</p></section>
   <section id="quizzes"><h2>Short Quizzes</h2><p>[Placeholder for quizzes]</p></section>
   <section id="counselling"><h2>Counselling Platforms</h2><p>[Placeholder for counselling info]</p></section>
-  <section id="donations"><h2>Receive Donations</h2><p>[Placeholder for donation info]</p></section>
+  <section id="donations"><h2>Donate</h2><p>[Placeholder for donation info]</p></section>
   <section id="events"><h2>Announcements & Events</h2><p>[Placeholder for upcoming events]</p></section>
-  <section id="videos"><h2>Embedded YouTube Videos</h2><p>[Placeholder for YouTube content]</p></section>
-  <section id="shop"><h2>Sell Books</h2><p>[Placeholder for book listings]</p></section>
+  <section id="videos"><h2>Our YouTube Videos</h2><p>[Placeholder for YouTube content]</p></section>
+  <section id="shop"><h2>Bookshop</h2><p>[Placeholder for book listings]</p></section>
   <section id="forums"><h2>Discussion Forums</h2><p>[Placeholder for community discussions]</p></section>
 
   <footer>
