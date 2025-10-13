@@ -88,10 +88,26 @@
       letter-spacing:.4px; margin:3px 0 0 0;
     }
 
-    /* 🔗 Navigation */
-    nav { background:#a52a2a; text-align:center; padding:10px; flex-wrap:wrap; }
-    nav a { color:#fff; margin:0 12px; text-decoration:none; font-weight:bold; }
+    /* 🔗 Fixed Navigation Bar */
+    nav {
+      background:#a52a2a;
+      text-align:center;
+      padding:10px;
+      flex-wrap:wrap;
+      position:fixed;
+      top:0;
+      left:0;
+      width:100%;
+      z-index:1000;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    }
+    nav a {
+      color:#fff; margin:0 12px; text-decoration:none; font-weight:bold;
+    }
     nav a:hover { text-decoration:underline; }
+
+    /* Add padding to offset fixed nav */
+    body { padding-top: 60px; }
 
     /* 📦 Sections */
     section {
@@ -173,7 +189,7 @@
 
   <!-- 🎥 Video Section -->
   <div class="video-container">
-    <video autoplay muted loop playsinline>
+    <video autoplay muted playsinline>
       <source src="G21 LOGO INTRO.mp4" type="video/mp4">
       Your browser does not support HTML5 video.
     </video>
@@ -190,13 +206,7 @@
     </a>
   </div>
 
-  <!-- 🕊️ Header -->
-  <header id="topHeader">
-    <img src="SF Logo.png" alt="YFCI Spiritual Formation Africa Logo" />
-    <h1>Youth for Christ Africa – Spiritual Formation</h1>
-  </header>
-
-  <!-- 🔗 Navigation -->
+  <!-- 🔗 Fixed Navigation -->
   <nav>
     <a href="#prayer-requests">Prayer Requests</a>
     <a href="#prayer-letter">Prayer Letter</a>
@@ -210,6 +220,12 @@
     <a href="#shop">Books</a>
     <a href="#forums">Forums</a>
   </nav>
+
+  <!-- 🕊️ Header -->
+  <header id="topHeader">
+    <img src="SF Logo.png" alt="YFCI Spiritual Formation Africa Logo" />
+    <h1>Youth for Christ Africa – Spiritual Formation</h1>
+  </header>
 
   <!-- 🌍 Intro -->
   <section id="intro">
@@ -249,13 +265,8 @@
   <section id="videos">
     <h2>Subscribe to our YouTube channel</h2>
     <p>Watch teachings, prayer sessions, and devotionals on our official YouTube channel:</p>
-
-    <!-- Centered YouTube Channel Button -->
-    <a href="https://www.youtube.com/@yfcispiritualformationafrica" 
-       target="_blank" 
-       class="youtube-btn">
-      <span class="youtube-icon">▶</span>
-      Check out our teachings
+    <a href="https://www.youtube.com/@yfcispiritualformationafrica" target="_blank" class="youtube-btn">
+      <span class="youtube-icon">▶</span> Check out our teachings
     </a>
   </section>
 
