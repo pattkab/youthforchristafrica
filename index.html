@@ -36,10 +36,11 @@
       }
     }
 
-    /* ⬇️ Scroll cue */
+    /* ⬇️ Scroll cue (shifted left to avoid overlap) */
     .scroll-cue {
       position: absolute;
-      right: 30px; bottom: 25px;
+      right: 100px; /* ✅ offset to prevent overlap with WhatsApp button */
+      bottom: 25px;
       display: flex; flex-direction: column; align-items: center;
       gap: 8px; color: #a52a2a; text-decoration: none;
       opacity: 0.95; padding: 6px 10px; border-radius: 999px;
@@ -72,7 +73,7 @@
       100%{opacity:0;transform:translateX(-50%) translateY(10px);}
     }
 
-    /* 🕊️ Header + Logo (compact) */
+    /* 🕊️ Header + Logo */
     header {
       background:#fff;
       border-bottom:3px solid #a52a2a;
@@ -106,8 +107,7 @@
     }
     nav a:hover { text-decoration:underline; }
 
-    /* Add padding to offset fixed nav */
-    body { padding-top: 20px; }
+    body { padding-top: 60px; }
 
     /* 📦 Sections */
     section {
@@ -159,30 +159,47 @@
     }
     #videos { text-align: center; }
 
-    /* ⚓ Footer */
-    footer { text-align:center; background:#a52a2a; color:#fff; padding:20px; margin-top:40px; }
+    /* 💬 Floating WhatsApp Button (with logo) */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      background-color: #25D366;
+      color: white;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      font-size: 30px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.25);
+      z-index: 1001;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .whatsapp-float:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+    }
 
-    /* 📱 Responsive tweaks */
-    @media (max-width: 992px) {
-      header img { height:160px; }
-      header h1 { font-size:1.5rem; }
-      nav a { margin:6px 10px; font-size:0.95rem; display:inline-block; }
-      section { margin:16px; padding:30px 5%; }
+    .whatsapp-float img {
+      width: 35px;
+      height: 35px;
     }
+
     @media (max-width: 768px) {
-      header img { height:130px; }
-      header h1 { font-size:1.25rem; }
-      nav { padding:8px; }
-      nav a { margin:6px 8px; font-size:0.9rem; }
-      .coordinator img { width:180px; height:180px; }
+      .whatsapp-float {
+        width: 55px;
+        height: 55px;
+      }
+      .whatsapp-float img {
+        width: 30px;
+        height: 30px;
+      }
     }
-    @media (max-width: 480px) {
-      .scroll-text { font-size:0.8rem; }
-      header img { height:110px; }
-      header h1 { font-size:1rem; }
-      nav a { margin:4px 6px; font-size:0.85rem; }
-      .coordinator img { width:150px; height:150px; }
-    }
+
+    footer { text-align:center; background:#a52a2a; color:#fff; padding:20px; margin-top:40px; }
   </style>
 </head>
 <body>
@@ -227,41 +244,23 @@
     <h1>Youth for Christ Africa – Spiritual Formation</h1>
   </header>
 
-  <!-- 🌍 Intro -->
+  <!-- 🌍 Sections -->
   <section id="intro">
     <h2>Welcome to Youth for Christ Africa – Spiritual Formation</h2>
-    <p>
-      Our mission is to nurture spiritual growth, prayerful living, and authentic discipleship across Africa.
-      Here you’ll find resources, prayer opportunities, and spiritual formation materials that inspire young believers to grow in faith.
-    </p>
+    <p>Our mission is to nurture spiritual growth, prayerful living, and authentic discipleship across Africa.</p>
   </section>
 
-  <!-- 👩🏾‍💼 Lead Coordinator -->
   <section id="coordinator">
     <h2>Lead Coordinator</h2>
     <div class="coordinator">
       <img src="Pastor Irene.png" alt="Pastor Irene Aliso Kabagambe" />
       <div>
         <h3>Pastor Irene Aliso Kabagambe</h3>
-        <p>
-          Lead Coordinator, Youth for Christ International – Spiritual Formation Africa.<br>
-          Passionate about guiding young people to deepen their relationship with Christ through prayer, mentorship, and spiritual discipline.
-        </p>
+        <p>Lead Coordinator, Youth for Christ International – Spiritual Formation Africa.</p>
       </div>
     </div>
   </section>
 
-  <!-- 🙏 Other Sections -->
-  <section id="prayer-requests"><h2>Submit Prayer Requests</h2><p>[Placeholder for prayer request form]</p></section>
-  <section id="prayer-letter"><h2>Monthly Prayer Letter</h2><p>[Placeholder for monthly updates]</p></section>
-  <section id="resources"><h2>Resources on Prayer & Spiritual Discipline</h2><p>[Placeholder for downloadable resources]</p></section>
-  <section id="bible-games"><h2>Bible Games</h2><p>[Placeholder for fun Bible games]</p></section>
-  <section id="quizzes"><h2>Short Quizzes</h2><p>[Placeholder for quizzes]</p></section>
-  <section id="counselling"><h2>Counselling Platforms</h2><p>[Placeholder for counselling info]</p></section>
-  <section id="donations"><h2>Donate</h2><p>[Placeholder for donation info]</p></section>
-  <section id="events"><h2>Announcements & Events</h2><p>[Placeholder for upcoming events]</p></section>
-
-  <!-- 🎥 Follow us on YouTube-->
   <section id="videos">
     <h2>Subscribe to our YouTube channel</h2>
     <p>Watch teachings, prayer sessions, and devotionals on our official YouTube channel:</p>
@@ -270,12 +269,17 @@
     </a>
   </section>
 
-  <section id="shop"><h2>Bookshop</h2><p>[Placeholder for book listings]</p></section>
-  <section id="forums"><h2>Discussion Forums</h2><p>[Placeholder for community discussions]</p></section>
-
   <footer>
     <p>&copy; 2025 Youth for Christ Africa – Spiritual Formation Africa. All Rights Reserved.</p>
   </footer>
+
+  <!-- 💬 Floating WhatsApp Button with official logo -->
+  <a href="https://wa.me/254725656652?text=Hello%20Youth%20for%20Christ%20Africa!%20I%20would%20like%20to%20talk%20to%20you." 
+     class="whatsapp-float" 
+     target="_blank" 
+     aria-label="Chat with us on WhatsApp">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Logo" />
+  </a>
 
   <script>
     const scrollCue = document.getElementById('scrollCue');
