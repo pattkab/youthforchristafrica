@@ -172,7 +172,9 @@
     /* Grow with us section */
     .grow-with-us-map {
       text-align: center;
-      margin-bottom: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
     .grow-with-us-map img {
       max-width: 100%;
@@ -183,19 +185,26 @@
     .logos-container {
       display: flex;
       justify-content: center;
+      align-items: center;
       gap: 2rem;
       flex-wrap: wrap;
     }
     .logos-container img {
-      height: 80px;
+      height: 120px;
       width: auto;
       border-radius: 10px;
       box-shadow: var(--shadow);
     }
-    @media (max-width: 768px) {
+    @media (max-width: 880px) {
       .logos-container {
         gap: 1rem;
+        flex-direction: column;
       }
+      .logos-container img {
+        height: 80px;
+      }
+    }
+    @media (max-width: 768px) {
       .logos-container img {
         height: 60px;
       }
@@ -380,12 +389,14 @@
     <div class="container">
       <h2 class="heading reveal">Grow with us</h2>
       <p class="subheading reveal">Join the movement across Africa as we disciple the next generation.</p>
-      <div class="grow-with-us-map reveal">
-        <img src="YFCI Africa.png" alt="YFCI Africa Coverage Map">
-      </div>
-      <div class="logos-container reveal">
-        <img src="youth_for_christ_logo.png" alt="Youth for Christ Logo">
-        <img src="G21 Catalysts.png" alt="G21 Catalysts Logo">
+      <div class="grid cols-2">
+        <div class="grow-with-us-map reveal">
+          <img src="YFCI Africa.png" alt="YFCI Africa Coverage Map">
+        </div>
+        <div class="logos-container reveal">
+          <img src="youth_for_christ_logo.png" alt="Youth for Christ Logo">
+          <img src="G21 Catalysts.png" alt="G21 Catalysts Logo">
+        </div>
       </div>
     </div>
   </section>
