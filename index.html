@@ -271,10 +271,13 @@
       opacity: 1;
       transition: opacity 1s ease-out;
       pointer-events: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
     .video-container video {
-      width: 100vw;
-      height: 100vh;
+      max-width: 100%;
+      max-height: 100%;
       object-fit: contain;
     }
     .video-container.fade-out {
@@ -285,8 +288,6 @@
     @media (max-width: 768px) and (orientation: portrait) {
       .video-container video {
         object-fit: contain;
-        width: 100vw;
-        height: 100vh;
       }
     }
   </style>
@@ -372,7 +373,8 @@
         </div>
 
         <div class="card reveal">
-          <span class="tag">Prayer Focus Initiatives</span>
+          <span class="tag">Prayer Focus</span>
+          <h3>PRAYER FOCUS</h3>
           <ul style="list-style:none; padding:0; margin:0;">
             <li><a href="#" style="display:block; margin-bottom:0.5rem; opacity:0.9;">Operation Hannah</a></li>
             <li><a href="#" style="display:block; margin-bottom:0.5rem; opacity:0.9;">Operation Watchmen</a></li>
@@ -385,12 +387,12 @@
 
         <div class="card reveal">
           <span class="tag">Prayer Schedule</span>
-          <h3>30-minute Prayer notifications</h3>
+          <h3>PRAYER SCHEDULE</h3>
           <ul style="list-style:none; padding:0; margin:0;">
-            <li><a href="#" style="display:block; margin-bottom:0.5rem; opacity:0.9;">6:00AM</a></li>
-            <li><a href="#" style="display:block; margin-bottom:0.5rem; opacity:0.9;">12:00 Mid-day</a></li>
-            <li><a href="#" style="display:block; margin-bottom:0.5rem; opacity:0.9;">6:00PM</a></li>
-            <li><a href="#" style="display:block; margin:0; opacity:0.9;">12:00 Mid-night</a></li>
+            <li><a href="#" style="display:block; margin-bottom:0.5rem; opacity:0.9;">6:00AM [30-minute prayer notification]</a></li>
+            <li><a href="#" style="display:block; margin-bottom:0.5rem; opacity:0.9;">12:00 Mid-day [30-minute prayer notification]</a></li>
+            <li><a href="#" style="display:block; margin-bottom:0.5rem; opacity:0.9;">6:00PM [30-minute prayer notification]</a></li>
+            <li><a href="#" style="display:block; margin:0; opacity:0.9;">12:00 Mid-night [30-minute prayer notification]</a></li>
           </ul>
         </div>
       </div>
@@ -402,262 +404,4 @@
     <div class="container grid cols-2">
       <div class="reveal">
         <h2 class="heading">Grow in Prayer & Discipleship</h2>
-        <p class="subheading">Our ministry is rooted in the belief that spiritual formation is not an event but a lifestyle. Deepen your walk with God through essential spiritual disciplines. Engage daily in practices like heartfelt prayer, immersive Bible study, authentic worship, meaningful fellowship, and living out love in action. Designed to nurture your faith and align with YFC Africa’s mission, this section offers guided resources, reflections, and community connections to help you grow spiritually and reflect Christ’s character, wherever you are.</p>
-        <div style="display:flex;gap:.6rem;flex-wrap:wrap;margin-top:.4rem">
-          <a class="btn btn-primary" href="#contact">Subscribe to the Prayer Letter</a>
-          <a class="btn btn-ghost" href="#videos">Watch a Short Devotional</a>
-        </div>
-      </div>
-
-      <div class="reveal">
-        <div class="card">
-          <h3>30 Days of Prayer (PDF)</h3>
-          <p>A simple, repeatable plan for youth teams. (Placeholder)</p>
-        </div>
-        <div class="card" style="margin-top:16px;">
-          <h3>Fasting Guides</h3>
-          <p>Practical guidance for individuals and groups. (Placeholder)</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- GROW WITH US -->
-  <section class="section" id="grow-with-us">
-    <div class="container">
-      <h2 class="heading reveal">Transforming Africa</h2>
-      <p class="subheading reveal">Join the movement across Africa as we disciple the next generation.</p>
-      <div class="grid cols-2">
-        <div class="grow-with-us-map reveal">
-          <img src="YFCI Africa.png" alt="YFCI Africa Coverage Map">
-        </div>
-        <div class="reveal">
-          <div class="vision-text">
-            <p>In 1997, God inspired Youth For Christ International/Africa with the Generation 21 (G21 Now) vision to disciple 21st-century African youth. The G21 Now Vision states: “To build a culture of youth evangelism and discipleship, a commitment to the Word of God, Prayer and Spiritual disciplines among the young people who will lead by example and serve as a catalyst for change.” (Mt. 5:13-16)</p>
-            <p>We pray that God will raise valiant young believers who earnestly seek His face in prayer and stand spiritually strong against the enemy’s attacks, as inspired by Ephesians 6:12.</p>
-          </div>
-          <div class="logos-container">
-            <img src="youth_for_christ_logo.png" alt="Youth for Christ Logo">
-            <img src="G21 Catalysts.png" alt="G21 Catalysts Logo">
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- COMMUNITY -->
-  <section class="section" id="community">
-    <div class="container">
-      <h2 class="heading reveal">Announcements & Events</h2>
-      <p class="subheading reveal">Join online prayer nights, workshops and regional camps across Africa.</p>
-
-      <div class="grid cols-3">
-        <div class="card reveal">
-          <h3>Youth Prayer Night</h3>
-          <p>Oct 20, 2025 — Online (placeholder)</p>
-        </div>
-        <div class="card reveal">
-          <h3>Leadership Workshop</h3>
-          <p>Nov 14, 2025 — Kampala (placeholder)</p>
-        </div>
-        <div class="card reveal">
-          <h3>Regional Camp</h3>
-          <p>Dec 5–7, 2025 — Details coming soon</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- COORDINATOR -->
-  <section class="section" id="coordinator">
-    <div class="container">
-      <h2 class="heading reveal">Meet Our Team</h2>
-      <p class="subheading reveal">Our dedicated coordinators guiding the spiritual formation movement across Africa.</p>
-      <div class="grid cols-3">
-        <div class="coordinator reveal">
-          <img src="Pastor Irene Aliso Kabagambe SF Coordinator.png" alt="Pastor Irene Aliso Kabagambe">
-          <div>
-            <h4>Lead Coordinator — Pastor Irene Aliso Kabagambe</h4>
-            <p>Guiding young people to deepen their relationship with Christ through prayer, mentorship and spiritual discipline.</p>
-          </div>
-        </div>
-        <div class="coordinator reveal">
-          <img src="Pastor Emmanuel Ogebe - NIGERIA SF.png" alt="Nigeria SF">
-          <div>
-            <h4>Nigeria SF — Pastor Emmanuel Ogebe</h4>
-            <p>[Placeholder description for team member role and focus.]</p>
-          </div>
-        </div>
-        <div class="coordinator reveal">
-          <img src="Monique Palan - MAURITIUS SF.png" alt="Maurituis SF">
-          <div>
-            <h4>Mauritius SF — Monique Palan</h4>
-            <p>[Placeholder description for team member role and focus.]</p>
-          </div>
-        </div>
-        <div class="coordinator reveal">
-          <img src="Apollo Nyamogo.png" alt="Member">
-          <div>
-            <h4>Member — Apollo Nyamogo</h4>
-            <p>[Placeholder description for team member role and focus.]</p>
-          </div>
-        </div>
-        <div class="coordinator reveal">
-          <img src="Dr Tsedaye Bezabe - ETHIOPIA SF.png" alt="Ethiopia SF">
-          <div>
-            <h4>Ethiopia SF — Dr Tsedaye Bezabe</h4>
-            <p>[Placeholder description for team member role and focus.]</p>
-          </div>
-        </div>
-        <div class="coordinator reveal">
-          <img src="Fiona Engelbrecht - SOUTHERN SF.png" alt="Southern SF">
-          <div>
-            <h4>Southern SF — Fiona Engelbrecht</h4>
-            <p>[Placeholder description for team member role and focus.]</p>
-          </div>
-        </div>
-        <div class="coordinator reveal">
-          <img src="Jocelyn Nicobireza - EAC SF.png" alt="EAC SF">
-          <div>
-            <h4>EAC SF — Jocelyn Nicobireza</h4>
-            <p>[Placeholder description for team member role and focus.]</p>
-          </div>
-        </div>
-        <div class="coordinator reveal">
-          <img src="Robert Tito.png" alt="Member">
-          <div>
-            <h4>Member — Robert Tito</h4>
-            <p>[Placeholder description for team member role and focus.]</p>
-          </div>
-        </div>
-        <div class="coordinator reveal">
-          <img src="Timothy Kirimi.png" alt="Technical Support">
-          <div>
-            <h4>Technical Support — Timothy Kirimi</h4>
-            <p>[Placeholder description for team member role and focus.]</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- VIDEOS -->
-  <section class="section" id="videos">
-    <div class="container yt-wrap">
-      <h2 class="heading reveal">Devotionals & Testimonies</h2>
-      <p class="subheading reveal">Watch teachings, prayer sessions and real stories from across the continent.</p>
-
-      <a href="https://www.youtube.com/@yfcispiritualformationafrica" target="_blank" class="youtube-btn reveal">
-        <span class="youtube-icon">▶</span> Visit YFCI Spiritual Formation Africa on YouTube
-      </a>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section class="section" id="contact">
-    <div class="container grid cols-2">
-      <div class="card reveal">
-        <h3>Submit a Prayer Request</h3>
-        <form onsubmit="event.preventDefault(); alert('Thank you! (placeholder)');" style="display:grid;gap:10px;margin-top:.6rem">
-          <input placeholder="Your name (optional)" style="padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.06);color:#fff" />
-          <input placeholder="Country (optional)" style="padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.06);color:#fff" />
-          <textarea rows="4" placeholder="Your prayer request…" style="padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.06);color:#fff"></textarea>
-          <label style="display:flex;align-items:center;gap:8px;font-size:.9rem;color:#e5e7eb">
-            <input type="checkbox" /> <span>Mark as private (staff-only)</span>
-          </label>
-          <button class="btn btn-primary" type="submit">Send Request</button>
-        </form>
-      </div>
-
-      <div class="card reveal">
-        <h3>Support the Mission</h3>
-        <p>Your gifts enable discipleship, resources, and youth leadership training. (Placeholder)</p>
-        <div style="display:flex;gap:.6rem;flex-wrap:wrap;margin-top:.6rem">
-          <a class="btn btn-primary" href="#">Donate via Mobile Money</a>
-          <a class="btn btn-ghost" href="#">Give via Card / PayPal</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer>
-    <div class="container foot-grid">
-      <div>
-        <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">
-          <img src="SF Logo.png" alt="YFCI Logo" style="height:34px;width:auto;border-radius:8px">
-          <strong>Youth for Christ Africa — Spiritual Formation</strong>
-        </div>
-        <p style="margin:0;color:#a7b0c0">Prayer • Discipleship • Community</p>
-      </div>
-      <div>
-        <strong>Explore</strong>
-        <div style="display:flex;flex-direction:column;gap:6px;margin-top:10px">
-          <a href="#features">Prayer</a>
-          <a href="#grow">Spiritual Growth</a>
-          <a href="#grow-with-us">Grow with Us</a>
-          <a href="#community">Events</a>
-          <a href="#videos">Videos</a>
-        </div>
-      </div>
-      <div>
-        <strong>Connect</strong>
-        <div style="display:flex;flex-direction:column;gap:6px;margin-top:10px">
-          <a href="#contact">Submit a Request</a>
-          <a href="https://www.youtube.com/@yfcispiritualformationafrica" target="_blank">YouTube</a>
-        </div>
-      </div>
-    </div>
-  </footer>
-
-  <!-- 💬 Floating WhatsApp Button -->
-  <a class="whatsapp-float"
-     href="https://wa.me/254725656652?text=Hello%20Youth%20for%20Christ%20Africa!%20I%20would%20like%20to%20talk%20to%20you."
-     target="_blank" aria-label="Chat with us on WhatsApp">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" />
-  </a>
-
-  <script>
-    // Intro Video Fade Out
-    const introVid = document.getElementById('introVid');
-    const videoContainer = document.querySelector('.video-container');
-
-    introVid.addEventListener('ended', () => {
-      videoContainer.classList.add('fade-out');
-      setTimeout(() => {
-        videoContainer.style.display = 'none';
-      }, 1000); // Match transition duration
-    });
-
-    // Hamburger menu toggle
-    const hamburger = document.querySelector('.hamburger');
-    const nav = document.querySelector('.nav');
-    const links = document.querySelectorAll('.links a');
-
-    hamburger.addEventListener('click', () => {
-      nav.classList.toggle('active');
-    });
-
-    links.forEach(link => {
-      link.addEventListener('click', () => {
-        nav.classList.remove('active');
-      });
-    });
-
-    // Close menu on outside click (optional for better UX)
-    document.addEventListener('click', (e) => {
-      if (!nav.contains(e.target)) {
-        nav.classList.remove('active');
-      }
-    });
-
-    // Smooth reveal on scroll
-    const observer = new IntersectionObserver(entries=>{
-      entries.forEach(e=>{
-        if(e.isIntersecting){ e.target.classList.add('show'); observer.unobserve(e.target); }
-      })
-    }, {threshold:.12});
-    document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
-  </script>
-</body>
-</html>
+        <p class="subheading">Our ministry is rooted in the belief that spiritual formation is not an event but a lifestyle. Deepen your walk with God through essential spiritual disciplines. Engage daily in practices like heartfelt prayer, immersive Bible study, authentic worship, meaningful fellowship, and living out love in action. Designed to nurture your faith and align with YFC Africa’s mission, this section offers guided resources, reflections,
