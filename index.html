@@ -2,365 +2,374 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Youth for Christ Africa | Spiritual Formation</title>
+
+  <!-- Modern fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
   <style>
-    /* ========== THEME VARIABLES ========== */
-    :root {
-      --accent: #b72d3a;
-      --bg: #ffffff;
-      --text: #222;
-      --muted: #595959;
-      --card-bg: #ffffff;
-      --shadow: rgba(0, 0, 0, 0.08);
-      --track: rgba(0,0,0,0.08);
-      --progress: #b72d3a;
+    :root{
+      --burgundy:#7a1e1e;
+      --burgundy-deep:#611616;
+      --gold:#F6C453;
+      --ink:#0f172a;
+      --muted:#64748b;
+      --bg:#0b0f19;
+      --card:#ffffff;
+      --glass:rgba(255,255,255,.08);
+      --glass-stroke:rgba(255,255,255,.18);
+      --shadow:0 10px 30px rgba(0,0,0,.25);
+      --radius:18px;
     }
-    body.dark {
-      --bg: #1a1a1a;
-      --text: #f4f4f4;
-      --muted: #d0d0d0;
-      --card-bg: #242424;
-      --shadow: rgba(255,255,255,0.08);
-      --track: rgba(255,255,255,0.15);
-      --progress: #f6c453;
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:var(--bg);color:#e5e7eb;font-family:Poppins,Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial}
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;height:auto;display:block}
+    .container{max-width:1180px;margin:0 auto;padding:0 20px}
+
+    /* Floating blurred navbar */
+    .nav{
+      position:fixed; inset:20px 20px auto 20px; z-index:1000;
+      border-radius:999px; padding:10px 14px;
+      backdrop-filter:blur(12px);
+      background:linear-gradient(90deg, rgba(122,30,30,.75), rgba(122,30,30,.55));
+      border:1px solid rgba(255,255,255,.18);
+      box-shadow:0 10px 25px rgba(0,0,0,.25);
+      display:flex; align-items:center; justify-content:space-between; gap:14px;
+    }
+    .brand{display:flex; align-items:center; gap:10px}
+    .brand img{height:34px;width:auto;border-radius:8px}
+    .brand .title{font-weight:700;letter-spacing:.3px}
+    .links{display:flex; gap:18px; align-items:center; flex-wrap:wrap}
+    .links a{font-size:.95rem;opacity:.95}
+    .cta{
+      background:linear-gradient(135deg,var(--gold),#ffd98c);
+      color:#3b1a00;font-weight:700;padding:.6rem 1rem;border-radius:999px;
+      box-shadow:0 6px 14px rgba(246,196,83,.35);
+      transition:transform .2s ease;
+    }
+    .cta:hover{transform:translateY(-2px)}
+    @media (max-width:860px){
+      .links{display:none}
+      .nav{inset:12px 12px auto 12px}
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
-    body {
-      background: var(--bg);
-      color: var(--text);
-      scroll-behavior: smooth;
-      transition: background 0.5s, color 0.5s;
+    /* HERO (static image + gradient overlay) */
+    .hero{
+      position:relative; min-height:92vh; display:grid; place-items:center; text-align:center; overflow:hidden;
+      background:
+        radial-gradient(1200px 600px at 80% -10%, rgba(246,196,83,.25), transparent 60%),
+        radial-gradient(1000px 600px at -10% 100%, rgba(122,30,30,.35), transparent 60%),
+        linear-gradient(180deg, rgba(0,0,0,.35), rgba(0,0,0,.65)),
+        url('hero-bg.jpg') center/cover no-repeat;
     }
+    .hero:before{
+      content:""; position:absolute; inset:0;
+      background: url('SF Logo.png') center/40% no-repeat;
+      opacity:.06; filter:grayscale(100%);
+      pointer-events:none;
+    }
+    .hero-inner{position:relative; z-index:1; padding:120px 20px 80px}
+    .eyebrow{
+      display:inline-flex; gap:8px; align-items:center;
+      padding:.35rem .75rem; border-radius:999px; font-weight:600;
+      background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.15)
+    }
+    .hero h1{font-size:clamp(2rem,6vw,3.4rem); line-height:1.08; margin:.8rem 0 .6rem}
+    .hero p{max-width:720px;margin:0 auto; color:#d1d5db}
+    .hero-actions{display:flex; gap:.8rem; justify-content:center; flex-wrap:wrap; margin-top:1.1rem}
+    .btn{
+      padding:.85rem 1.15rem; border-radius:12px; font-weight:700;
+      box-shadow:var(--shadow); border:1px solid rgba(255,255,255,.15);
+      transition:transform .2s ease, box-shadow .2s ease, background .2s ease;
+    }
+    .btn-primary{background:linear-gradient(135deg, var(--gold), #ffd98c); color:#381a00}
+    .btn-ghost{background:rgba(255,255,255,.08); color:#fff}
+    .btn:hover{transform:translateY(-3px)}
 
-    /* ========== PROGRESS BAR ========== */
-    .progress-track {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 4px;
-      background: var(--track);
-      z-index: 2000;
-    }
-    .progress-bar {
-      height: 100%;
-      width: 0%;
-      background: var(--progress);
-      transition: width 0.06s linear;
-    }
+    /* Section wrappers */
+    .section{padding:70px 0}
+    .section .heading{font-size:clamp(1.6rem,3.2vw,2.2rem); margin:0 0 .6rem}
+    .section .subheading{color:#cbd5e1; margin:0 auto 1.4rem; max-width:760px}
 
-    /* ========== NAVIGATION ========== */
-    nav {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%;
-      background: rgba(255,255,255,0.85);
-      backdrop-filter: blur(10px);
-      box-shadow: 0 4px 18px var(--shadow);
-      z-index: 1500;
-      padding: 12px 20px;
-      transition: background 0.4s;
+    /* Feature cards */
+    .grid{display:grid; gap:22px}
+    @media(min-width:880px){.grid.cols-3{grid-template-columns:repeat(3,1fr)} .grid.cols-2{grid-template-columns:repeat(2,1fr)}}
+    .card{
+      background:linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.04));
+      border:1px solid var(--glass-stroke);
+      border-radius:var(--radius);
+      padding:22px;
+      box-shadow:var(--shadow);
+      transition:transform .25s ease, box-shadow .25s ease, background .25s ease;
+      min-height:180px;
     }
-    body.dark nav { background: rgba(20,20,20,0.85); }
+    .card:hover{transform:translateY(-6px); box-shadow:0 16px 36px rgba(0,0,0,.35)}
+    .card h3{margin:.2rem 0 .45rem}
+    .tag{display:inline-block; font-size:.8rem; padding:.25rem .55rem; border-radius:999px; background:rgba(246,196,83,.2); color:#ffeab2; border:1px solid rgba(246,196,83,.35); font-weight:700}
 
-    .nav-inner {
-      max-width: 1100px;
-      margin: auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+    /* Coordinator */
+    .coordinator{
+      display:flex; gap:18px; align-items:center; flex-wrap:wrap;
+      background:linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.03));
+      border:1px solid var(--glass-stroke); border-radius:var(--radius);
+      padding:18px;
     }
-    .brand {
-      display: flex; align-items: center; gap: 10px; font-weight: 800;
-    }
-    .brand img { height: 30px; width: auto; border-radius: 6px; }
+    .coordinator img{width:160px;height:160px;object-fit:cover;border-radius:14px;border:3px solid rgba(255,255,255,.2)}
+    .coordinator h4{margin:.2rem 0 .2rem}
+    .coordinator p{margin:0;color:#d1d5db}
 
-    .links {
-      display: flex;
-      gap: 20px;
-      align-items: center;
+    /* YouTube */
+    .yt-wrap{text-align:center}
+    .youtube-btn{
+      display:inline-flex;align-items:center;gap:10px;
+      background:linear-gradient(135deg,var(--burgundy),var(--burgundy-deep));
+      color:#fff;padding:14px 20px;border-radius:12px;font-weight:700;
+      border:1px solid rgba(255,255,255,.12);
+      box-shadow:0 10px 20px rgba(122,30,30,.35);
+      transition:transform .2s ease, box-shadow .2s ease, background .2s ease;
+      margin-top:8px;
     }
-    .links a {
-      font-weight: 600;
-      color: var(--text);
-      text-decoration: none;
-      transition: color 0.3s;
-    }
-    .links a:hover { color: var(--accent); }
+    .youtube-btn:hover{transform:translateY(-3px)}
+    .youtube-icon{background:#ff0000; padding:4px 7px; border-radius:6px; font-weight:700}
 
-    .theme-toggle, .menu-toggle {
-      border: none;
-      background: transparent;
-      cursor: pointer;
-      font-size: 1.4rem;
-      color: var(--accent);
-      transition: transform 0.25s;
-    }
-    .theme-toggle:hover, .menu-toggle:hover { transform: scale(1.1); }
+    /* Footer */
+    footer{padding:60px 0 80px; color:#cbd5e1; border-top:1px solid rgba(255,255,255,.08)}
+    .foot-grid{display:grid; gap:18px}
+    @media(min-width:860px){.foot-grid{grid-template-columns:2fr 1fr 1fr}}
 
-    /* Mobile menu toggle hidden on desktop */
-    .menu-toggle { display: none; }
+    /* WhatsApp Floating */
+    .whatsapp-float{
+      position:fixed; right:24px; bottom:24px; z-index:1001;
+      width:60px;height:60px;border-radius:50%;
+      background:#25D366; display:flex;align-items:center;justify-content:center;
+      box-shadow:0 12px 24px rgba(0,0,0,.35);
+      transition:transform .2s ease, box-shadow .2s ease;
+    }
+    .whatsapp-float:hover{transform:scale(1.06); box-shadow:0 16px 32px rgba(0,0,0,.4)}
+    .whatsapp-float img{width:34px;height:34px}
 
-    /* Overlay Menu */
-    .mobile-overlay {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(15,15,15,0.85);
-      backdrop-filter: blur(10px);
-      z-index: 2000;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      text-align: center;
-      transition: opacity 0.4s ease;
-    }
-    .mobile-overlay.open { display: flex; animation: fadeIn 0.3s ease forwards; }
-    @keyframes fadeIn { from {opacity:0;} to {opacity:1;} }
-    .mobile-overlay a {
-      color: #fff;
-      font-size: 1.4rem;
-      font-weight: 700;
-      margin: 12px 0;
-      text-decoration: none;
-    }
-    .mobile-overlay a:hover { color: var(--accent); }
-
-    @media (max-width: 860px) {
-      .links { display: none; }
-      .menu-toggle { display: block; }
-    }
-
-    .offset { height: 70px; }
-
-    /* ========== HERO ========== */
-    .hero {
-      min-height: calc(100vh - 70px);
-      background: linear-gradient(120deg, #b72d3a, #f7d9d9, #b72d3a);
-      background-size: 300% 300%;
-      animation: gradientShift 12s ease infinite;
-      display: flex; flex-direction: column;
-      align-items: center; justify-content: center;
-      text-align: center; color: #fff; padding: 0 1rem;
-    }
-    @keyframes gradientShift {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-    .hero img {
-      height: 120px; margin-bottom: 20px;
-      filter: drop-shadow(0 6px 12px rgba(0,0,0,0.4));
-    }
-    .hero h1 { font-size: clamp(2rem, 5vw, 3rem); max-width: 760px; }
-    .hero p { margin-top: 1rem; max-width: 700px; font-size: 1.1rem; opacity: 0.9; }
-
-    /* ========== SECTIONS ========== */
-    section {
-      max-width: 1000px; margin: 80px auto;
-      background: var(--card-bg);
-      border-radius: 16px;
-      box-shadow: 0 8px 25px var(--shadow);
-      padding: 48px 30px;
-      transition: background 0.5s, color 0.5s;
-    }
-    section h2 { color: var(--accent); margin-bottom: 12px; font-size: 1.7rem; }
-    section p.lead { color: var(--muted); margin-bottom: 8px; }
-
-    .coordinator {
-      display: flex; flex-direction: column;
-      align-items: center; gap: 20px; text-align: center;
-    }
-    .coordinator img {
-      width: 220px; height: 220px; border-radius: 16px;
-      object-fit: cover; border: 4px solid var(--accent);
-      box-shadow: 0 6px 18px var(--shadow);
-    }
-
-    .youtube-btn {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: var(--accent); color: #fff;
-      padding: 12px 20px; border-radius: 10px;
-      font-weight: 700; text-decoration: none;
-      transition: transform 0.3s, background 0.3s;
-    }
-    .youtube-btn:hover { background: #a52330; transform: translateY(-3px); }
-
-    footer {
-      text-align: center; background: var(--accent); color: #fff;
-      padding: 30px; border-radius: 12px 12px 0 0;
-    }
-
-    /* ========== FLOATING WHATSAPP ========== */
-    .whatsapp-float {
-      position: fixed; bottom: 22px; right: 22px;
-      background: #25D366;
-      width: 55px; height: 55px;
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.25);
-      z-index: 1200;
-      transition: transform 0.3s ease;
-    }
-    .whatsapp-float:hover { transform: scale(1.06); }
-    .whatsapp-float img { width: 30px; height: 30px; }
-
-    /* ========== ANIMATIONS ========== */
-    .reveal {
-      opacity: 0;
-      transform: translateY(30px) scale(0.97);
-      will-change: opacity, transform;
-    }
-    .reveal.show {
-      opacity: 1;
-      transform: translateY(0) scale(1);
-      transition: opacity 700ms cubic-bezier(.2,.7,.2,1),
-                  transform 700ms cubic-bezier(.2,1,.2,1);
-    }
-
-    @media (max-width: 768px) {
-      section { margin: 60px 16px; padding: 40px 20px; }
-      .hero img { height: 90px; }
-    }
+    /* Reveal animations */
+    .reveal{opacity:0; transform:translateY(18px); transition:opacity .6s ease, transform .6s ease}
+    .reveal.show{opacity:1; transform:translateY(0)}
   </style>
 </head>
 <body>
 
-  <!-- Progress Bar -->
-  <div class="progress-track"><div class="progress-bar" id="progressBar"></div></div>
-
-  <!-- Navigation -->
-  <nav>
-    <div class="nav-inner">
-      <div class="brand">
-        <img src="SF Logo.png" alt="Logo" />
-        <span>Youth for Christ Africa</span>
-      </div>
-      <div class="links">
-        <a href="#intro">Home</a>
-        <a href="#prayer">Prayer</a>
-        <a href="#resources">Resources</a>
-        <a href="#videos">Videos</a>
-        <a href="#contact">Contact</a>
-      </div>
-      <div style="display:flex;align-items:center;gap:10px;">
-        <button class="theme-toggle" id="themeToggle">🌙</button>
-        <button class="menu-toggle" id="menuToggle">☰</button>
-      </div>
+  <!-- NAV -->
+  <div class="nav">
+    <div class="brand">
+      <img src="SF Logo.png" alt="YFCI Logo">
+      <div class="title">Youth for Christ Africa</div>
     </div>
-  </nav>
-
-  <!-- Mobile Overlay Menu -->
-  <div class="mobile-overlay" id="mobileMenu">
-    <a href="#intro">Home</a>
-    <a href="#prayer">Prayer</a>
-    <a href="#resources">Resources</a>
-    <a href="#videos">Videos</a>
-    <a href="#contact">Contact</a>
+    <div class="links">
+      <a href="#features">Prayer</a>
+      <a href="#grow">Spiritual Growth</a>
+      <a href="#community">Community</a>
+      <a href="#videos">Videos</a>
+      <a href="#coordinator">Team</a>
+      <a class="cta" href="#contact">Get Involved</a>
+    </div>
   </div>
 
-  <div class="offset"></div>
-
   <!-- HERO -->
-  <header class="hero reveal" id="intro">
-    <img src="SF Logo.png" alt="Youth for Christ Africa Logo" />
-    <h1>Youth for Christ Africa – Spiritual Formation</h1>
-    <p>Connecting youth across Africa through prayer, discipleship, and community. A new generation, devoted to Christ.</p>
-  </header>
-
-  <section id="coordinator" class="reveal">
-    <h2>Lead Coordinator</h2>
-    <div class="coordinator">
-      <img src="Pastor Irene.png" alt="Pastor Irene Aliso Kabagambe" />
-      <div>
-        <h3>Pastor Irene Aliso Kabagambe</h3>
-        <p>Lead Coordinator, Youth for Christ International – Spiritual Formation Africa.</p>
+  <section class="hero" id="home">
+    <div class="hero-inner container">
+      <div class="eyebrow">Spiritual Formation Africa</div>
+      <h1>Raise a Generation Devoted to Christ</h1>
+      <p>Prayer. Discipleship. Community. Equip and connect youth leaders and young believers across Africa.</p>
+      <div class="hero-actions">
+        <a href="#features" class="btn btn-primary">Join the Movement</a>
+        <a href="#videos" class="btn btn-ghost">Watch Devotionals</a>
       </div>
     </div>
   </section>
 
-  <section id="prayer" class="reveal">
-    <h2>Submit Prayer Requests</h2>
-    <p class="lead">Share your prayer needs with our intercessory community.</p>
+  <!-- FEATURES -->
+  <section class="section" id="features">
+    <div class="container">
+      <h2 class="heading reveal">What We’re About</h2>
+      <p class="subheading reveal">Simple steps to plug in: share a prayer request, access growth resources, and connect with others walking with Jesus.</p>
+
+      <div class="grid cols-3">
+        <div class="card reveal">
+          <span class="tag">Prayer</span>
+          <h3>Submit Prayer Requests</h3>
+          <p>Let our team and community pray with you. Private or public — God hears.</p>
+          <div style="margin-top:.6rem">
+            <a class="btn btn-primary" href="#contact">Send a Request</a>
+          </div>
+        </div>
+
+        <div class="card reveal">
+          <span class="tag">Growth</span>
+          <h3>Spiritual Discipline Resources</h3>
+          <p>Guides on prayer, fasting, devotion rhythms and leading small groups.</p>
+          <div style="margin-top:.6rem">
+            <a class="btn btn-ghost" href="#grow">Explore Resources</a>
+          </div>
+        </div>
+
+        <div class="card reveal">
+          <span class="tag">Community</span>
+          <h3>Forums & Youth Leaders</h3>
+          <p>A safe, moderated community for questions, testimonies and encouragement.</p>
+          <div style="margin-top:.6rem">
+            <a class="btn btn-ghost" href="#community">Visit Community</a>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
 
-  <section id="resources" class="reveal">
-    <h2>Resources & Discipleship</h2>
-    <p class="lead">Download devotionals, study guides, and prayer materials to grow in spiritual discipline.</p>
+  <!-- GROW -->
+  <section class="section" id="grow">
+    <div class="container grid cols-2">
+      <div class="reveal">
+        <h2 class="heading">Grow in Prayer & Discipleship</h2>
+        <p class="subheading">Monthly prayer letter, reading plans, and a simple “30 Days of Prayer” path for groups.</p>
+        <div style="display:flex;gap:.6rem;flex-wrap:wrap;margin-top:.4rem">
+          <a class="btn btn-primary" href="#contact">Subscribe to the Prayer Letter</a>
+          <a class="btn btn-ghost" href="#videos">Watch a Short Devotional</a>
+        </div>
+      </div>
+
+      <div class="reveal">
+        <div class="card">
+          <h3>30 Days of Prayer (PDF)</h3>
+          <p>A simple, repeatable plan for youth teams. (Placeholder)</p>
+        </div>
+        <div class="card" style="margin-top:16px;">
+          <h3>Fasting Guides</h3>
+          <p>Practical guidance for individuals and groups. (Placeholder)</p>
+        </div>
+      </div>
+    </div>
   </section>
 
-  <section id="videos" class="reveal">
-    <h2>Watch & Grow</h2>
-    <p>Explore inspiring messages and devotionals on our YouTube channel.</p>
-    <a href="https://www.youtube.com/@yfcispiritualformationafrica" target="_blank" class="youtube-btn">▶ Visit Our Channel</a>
+  <!-- COMMUNITY -->
+  <section class="section" id="community">
+    <div class="container">
+      <h2 class="heading reveal">Announcements & Events</h2>
+      <p class="subheading reveal">Join online prayer nights, workshops and regional camps across Africa.</p>
+
+      <div class="grid cols-3">
+        <div class="card reveal">
+          <h3>Youth Prayer Night</h3>
+          <p>Oct 20, 2025 — Online (placeholder)</p>
+        </div>
+        <div class="card reveal">
+          <h3>Leadership Workshop</h3>
+          <p>Nov 14, 2025 — Kampala (placeholder)</p>
+        </div>
+        <div class="card reveal">
+          <h3>Regional Camp</h3>
+          <p>Dec 5–7, 2025 — Details coming soon</p>
+        </div>
+      </div>
+    </div>
   </section>
 
-  <section id="contact" class="reveal">
-    <h2>Get In Touch</h2>
-    <p class="lead">Reach out for mentorship, collaboration, or prayer partnership.</p>
-    <p>Email (placeholder): info@yfci-africa.org</p>
+  <!-- COORDINATOR -->
+  <section class="section" id="coordinator">
+    <div class="container">
+      <div class="coordinator reveal">
+        <img src="Pastor Irene.png" alt="Pastor Irene Aliso Kabagambe">
+        <div>
+          <h4>Lead Coordinator — Pastor Irene Aliso Kabagambe</h4>
+          <p>Guiding young people to deepen their relationship with Christ through prayer, mentorship and spiritual discipline.</p>
+        </div>
+      </div>
+    </div>
   </section>
 
+  <!-- VIDEOS -->
+  <section class="section" id="videos">
+    <div class="container yt-wrap">
+      <h2 class="heading reveal">Devotionals & Testimonies</h2>
+      <p class="subheading reveal">Watch teachings, prayer sessions and real stories from across the continent.</p>
+
+      <a href="https://www.youtube.com/@yfcispiritualformationafrica" target="_blank" class="youtube-btn reveal">
+        <span class="youtube-icon">▶</span> Visit YFCI Spiritual Formation Africa on YouTube
+      </a>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section" id="contact">
+    <div class="container grid cols-2">
+      <div class="card reveal">
+        <h3>Submit a Prayer Request</h3>
+        <form onsubmit="event.preventDefault(); alert('Thank you! (placeholder)');" style="display:grid;gap:10px;margin-top:.6rem">
+          <input placeholder="Your name (optional)" style="padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.06);color:#fff" />
+          <input placeholder="Country (optional)" style="padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.06);color:#fff" />
+          <textarea rows="4" placeholder="Your prayer request…" style="padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.06);color:#fff"></textarea>
+          <label style="display:flex;align-items:center;gap:8px;font-size:.9rem;color:#e5e7eb">
+            <input type="checkbox" /> <span>Mark as private (staff-only)</span>
+          </label>
+          <button class="btn btn-primary" type="submit">Send Request</button>
+        </form>
+      </div>
+
+      <div class="card reveal">
+        <h3>Support the Mission</h3>
+        <p>Your gifts enable discipleship, resources, and youth leadership training. (Placeholder)</p>
+        <div style="display:flex;gap:.6rem;flex-wrap:wrap;margin-top:.6rem">
+          <a class="btn btn-primary" href="#">Donate via Mobile Money</a>
+          <a class="btn btn-ghost" href="#">Give via Card / PayPal</a>
+        </div>
+      </div>
+…and the closing part:  
+
+```html
+    </div>
+  </section>
+
+  <!-- FOOTER -->
   <footer>
-    <p>&copy; 2025 Youth for Christ Africa – Spiritual Formation. All Rights Reserved.</p>
+    <div class="container foot-grid">
+      <div>
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">
+          <img src="SF Logo.png" alt="YFCI Logo" style="height:34px;width:auto;border-radius:8px">
+          <strong>Youth for Christ Africa — Spiritual Formation</strong>
+        </div>
+        <p style="margin:0;color:#a7b0c0">Prayer • Discipleship • Community</p>
+      </div>
+      <div>
+        <strong>Explore</strong>
+        <div style="display:flex;flex-direction:column;gap:6px;margin-top:10px">
+          <a href="#features">Prayer</a>
+          <a href="#grow">Spiritual Growth</a>
+          <a href="#community">Events</a>
+          <a href="#videos">Videos</a>
+        </div>
+      </div>
+      <div>
+        <strong>Connect</strong>
+        <div style="display:flex;flex-direction:column;gap:6px;margin-top:10px">
+          <a href="#contact">Submit a Request</a>
+          <a href="https://www.youtube.com/@yfcispiritualformationafrica" target="_blank">YouTube</a>
+        </div>
+      </div>
+    </div>
   </footer>
 
-  <!-- WhatsApp Floating Button -->
+  <!-- 💬 Floating WhatsApp Button -->
   <a class="whatsapp-float"
-     href="https://wa.me/254725656652?text=Hello%20Youth%20for%20Christ%20Africa!%20I'd%20love%20to%20connect."
-     target="_blank">
+     href="https://wa.me/254725656652?text=Hello%20Youth%20for%20Christ%20Africa!%20I%20would%20like%20to%20talk%20to%20you."
+     target="_blank" aria-label="Chat with us on WhatsApp">
     <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" />
   </a>
 
   <script>
-    // THEME TOGGLE
-    const toggle = document.getElementById('themeToggle');
-    const body = document.body;
-    if (localStorage.getItem('theme') === 'dark') {
-      body.classList.add('dark');
-      toggle.textContent = '☀️';
-    }
-    toggle.addEventListener('click', () => {
-      body.classList.toggle('dark');
-      const dark = body.classList.contains('dark');
-      toggle.textContent = dark ? '☀️' : '🌙';
-      localStorage.setItem('theme', dark ? 'dark' : 'light');
-    });
-
-    // SCROLL PROGRESS
-    const progressBar = document.getElementById('progressBar');
-    window.addEventListener('scroll', () => {
-      const scrollTop = window.scrollY;
-      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-      const progress = (scrollTop / docHeight) * 100;
-      progressBar.style.width = progress + '%';
-    });
-
-    // REVEAL ON SCROLL
-    const reveals = document.querySelectorAll('.reveal');
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('show');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.1 });
-    reveals.forEach(r => observer.observe(r));
-
-    // MOBILE MENU
-    const menuToggle = document.getElementById('menuToggle');
-    const mobileMenu = document.getElementById('mobileMenu');
-    menuToggle.addEventListener('click', () => {
-      const isOpen = mobileMenu.classList.toggle('open');
-      menuToggle.textContent = isOpen ? '✕' : '☰';
-    });
-    mobileMenu.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        mobileMenu.classList.remove('open');
-        menuToggle.textContent = '☰';
-      });
-    });
+    // Smooth reveal on scroll
+    const observer = new IntersectionObserver(entries=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){ e.target.classList.add('show'); observer.unobserve(e.target); }
+      })
+    }, {threshold:.12});
+    document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
   </script>
 </body>
 </html>
