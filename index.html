@@ -6,9 +6,6 @@
   <title>Youth for Christ Africa | Spiritual Formation</title>
 
   <!-- Modern fonts -->
-
-
-  
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
 
   <style>
@@ -53,8 +50,57 @@
       transition:transform .2s ease;
     }
     .cta:hover{transform:translateY(-2px)}
+
+    /* Hamburger menu */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+      z-index: 1001;
+    }
+    .hamburger span {
+      width: 25px;
+      height: 3px;
+      background: #fff;
+      margin: 3px 0;
+      transition: 0.3s;
+    }
+    .nav.active .hamburger span:nth-child(1) {
+      transform: rotate(-45deg) translate(-5px, 6px);
+    }
+    .nav.active .hamburger span:nth-child(2) {
+      opacity: 0;
+    }
+    .nav.active .hamburger span:nth-child(3) {
+      transform: rotate(45deg) translate(-5px, -6px);
+    }
+
     @media (max-width:860px){
-      .links{display:none}
+      .hamburger {display: flex;}
+      .links{
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: linear-gradient(90deg, rgba(122,30,30,.75), rgba(122,30,30,.55));
+        backdrop-filter: blur(12px);
+        border: 1px solid rgba(255,255,255,.18);
+        border-top: none;
+        border-radius: 0 0 999px 999px;
+        padding: 20px;
+        flex-direction: column;
+        gap: 12px;
+        box-shadow: 0 10px 25px rgba(0,0,0,.25);
+        align-items: stretch;
+        text-align: center;
+      }
+      .nav.active .links {display: flex;}
+      .links a {padding: 8px 0; opacity: 1; font-size: 1rem;}
+      .cta {margin-top: 8px;}
       .nav{inset:12px 12px auto 12px}
     }
 
@@ -179,6 +225,15 @@
     .video-container.fade-out {
       opacity: 0;
     }
+
+    /* Mobile-specific video adjustments */
+    @media (max-width: 768px) and (orientation: portrait) {
+      .video-container video {
+        object-fit: cover;
+        height: 100vh;
+        width: 100vw;
+      }
+    }
   </style>
 </head>
 <body>
@@ -197,6 +252,11 @@
       <img src="SF Logo.png" alt="YFCI Logo">
       <div class="title">Youth for Christ Africa</div>
     </div>
+    <button class="hamburger" aria-label="Toggle Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
     <div class="links">
       <a href="#features">Prayer</a>
       <a href="#grow">Spiritual Growth</a>
@@ -464,6 +524,28 @@
       setTimeout(() => {
         videoContainer.style.display = 'none';
       }, 1000); // Match transition duration
+    });
+
+    // Hamburger menu toggle
+    const hamburger = document.querySelector('.hamburger');
+    const nav = document.querySelector('.nav');
+    const links = document.querySelectorAll('.links a');
+
+    hamburger.addEventListener('click', () => {
+      nav.classList.toggle('active');
+    });
+
+    links.forEach(link => {
+      link.addEventListener('click', () => {
+        nav.classList.remove('active');
+      });
+    });
+
+    // Close menu on outside click (optional for better UX)
+    document.addEventListener('click', (e) => {
+      if (!nav.contains(e.target)) {
+        nav.classList.remove('active');
+      }
     });
 
     // Smooth reveal on scroll
