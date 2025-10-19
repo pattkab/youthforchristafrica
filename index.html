@@ -155,7 +155,7 @@
     .reveal.show{opacity:1; transform:translateY(0)}
 
     /* Intro Video Overlay */
-    #intro-video {
+    .video-container {
       position: fixed;
       top: 0;
       left: 0;
@@ -167,23 +167,23 @@
       transition: opacity 1s ease-out;
       pointer-events: none;
     }
-    #intro-video video {
+    .video-container video {
       width: 100%;
       height: 100%;
       object-fit: cover;
     }
-    #intro-video.fade-out {
+    .video-container.fade-out {
       opacity: 0;
     }
   </style>
 </head>
 <body>
 
-  <!-- Intro Video Overlay -->
-  <div id="intro-video">
+  <!-- 🎥 Video Intro Overlay -->
+  <div class="video-container">
     <video id="introVid" autoplay muted playsinline>
-      <source src="G21 Logo Intro.mp4" type="video/mp4">
-      Your browser does not support the video tag.
+      <source src="G21 LOGO INTRO.mp4" type="video/mp4">
+      Your browser does not support HTML5 video.
     </video>
   </div>
 
@@ -392,13 +392,13 @@
   <script>
     // Intro Video Fade Out
     const introVid = document.getElementById('introVid');
-    const introDiv = document.getElementById('intro-video');
+    const videoContainer = document.querySelector('.video-container');
 
     introVid.addEventListener('ended', () => {
-      introDiv.classList.add('fade-out');
+      videoContainer.classList.add('fade-out');
       setTimeout(() => {
-        introDiv.style.display = 'none';
-      }, 1000);
+        videoContainer.style.display = 'none';
+      }, 1000); // Match transition duration
     });
 
     // Smooth reveal on scroll
@@ -411,4 +411,3 @@
   </script>
 </body>
 </html>
-```
