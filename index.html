@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -153,9 +154,39 @@
     /* Reveal animations */
     .reveal{opacity:0; transform:translateY(18px); transition:opacity .6s ease, transform .6s ease}
     .reveal.show{opacity:1; transform:translateY(0)}
+
+    /* Intro Video Overlay */
+    #intro-video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1002;
+      background: #000;
+      opacity: 1;
+      transition: opacity 1s ease-out;
+      pointer-events: none;
+    }
+    #intro-video video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    #intro-video.fade-out {
+      opacity: 0;
+    }
   </style>
 </head>
 <body>
+
+  <!-- Intro Video Overlay -->
+  <div id="intro-video">
+    <video id="introVid" autoplay muted playsinline>
+      <source src="G21 Logo Intro.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
 
   <!-- NAV -->
   <div class="nav">
@@ -360,6 +391,17 @@
   </a>
 
   <script>
+    // Intro Video Fade Out
+    const introVid = document.getElementById('introVid');
+    const introDiv = document.getElementById('intro-video');
+
+    introVid.addEventListener('ended', () => {
+      introDiv.classList.add('fade-out');
+      setTimeout(() => {
+        introDiv.style.display = 'none';
+      }, 1000);
+    });
+
     // Smooth reveal on scroll
     const observer = new IntersectionObserver(entries=>{
       entries.forEach(e=>{
@@ -370,3 +412,4 @@
   </script>
 </body>
 </html>
+```
