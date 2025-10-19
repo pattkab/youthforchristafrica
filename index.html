@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Youth for Christ Africa | Spiritual Formation</title>
+  <title>Spiritual Formation Africa | Youth for Christ</title>
 
   <!-- Modern fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
@@ -127,6 +127,38 @@
     .hero h1{font-size:clamp(2rem,6vw,3.4rem); line-height:1.08; margin:.8rem 0 .6rem}
     .hero p{max-width:720px;margin:0 auto; color:#d1d5db}
     .hero-actions{display:flex; gap:.8rem; justify-content:center; flex-wrap:wrap; margin-top:1.1rem}
+    .hero-columns {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      align-items: stretch;
+      margin: 1rem auto 1.1rem;
+      max-width: 1000px;
+    }
+    .hero-columns .text-column {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 1rem;
+    }
+    .hero-columns .map-column {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+    }
+    .hero-columns .map-column img {
+      width: 100%;
+      height: auto;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+    @media (max-width: 880px) {
+      .hero-columns {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+    }
     .btn{
       padding:.85rem 1.15rem; border-radius:12px; font-weight:700;
       box-shadow:var(--shadow); border:1px solid rgba(255,255,255,.15);
@@ -152,9 +184,19 @@
       box-shadow:var(--shadow);
       transition:transform .25s ease, box-shadow .25s ease, background .25s ease;
       min-height:180px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
     }
     .card:hover{transform:translateY(-6px); box-shadow:0 16px 36px rgba(0,0,0,.35)}
     .card h3{margin:.2rem 0 .45rem}
+    .card img {
+      width: 100%;
+      height: auto;
+      margin-bottom: 1rem;
+      border-radius: 10px;
+    }
     .tag{display:inline-block; font-size:.8rem; padding:.25rem .55rem; border-radius:999px; background:rgba(246,196,83,.2); color:#ffeab2; border:1px solid rgba(246,196,83,.35); font-weight:700}
 
     /* Team Member */
@@ -305,7 +347,7 @@
   <div class="nav">
     <div class="brand">
       <img src="SF Logo.png" alt="YFCI Logo">
-      <div class="title">Youth for Christ Africa</div>
+      <div class="title">Spiritual Formation Africa</div>
     </div>
     <button class="hamburger" aria-label="Toggle Menu">
       <span></span>
@@ -328,8 +370,14 @@
     <div class="hero-inner container">
       <div class="eyebrow">Spiritual Formation Africa</div>
       <h1>Raise a Generation Devoted to Christ</h1>
-      <p>Welcome to the Youth for Christ Africa Spiritual Formation Webapp — a transformative space to nurture your spiritual growth through daily, faith-centered practices. Rooted in our mission to disciple young people across 35 nations, the app helps you build a vibrant spiritual life through prayer, Bible study, worship, fellowship, and love. Featuring multilingual content, offline access, and interactive tools like prayer rooms and devotionals, it’s your daily companion for walking closely with God. Across Africa, Youth for Christ shares one heartbeat — to see young people transformed by the Gospel and sustained by deep, lasting spiritual roots.
-</p>
+      <div class="hero-columns">
+        <div class="text-column">
+          <p>Welcome to the Youth for Christ Africa Spiritual Formation Webapp — a transformative space to nurture your spiritual growth through daily, faith-centered practices. Across Africa, Youth for Christ shares one heartbeat — to see young people transformed by the Gospel and sustained by deep, lasting spiritual roots.</p>
+        </div>
+        <div class="map-column">
+          <img src="YFCI Africa.png" alt="YFCI Africa Coverage Map">
+        </div>
+      </div>
       <div class="hero-actions">
         <a href="#features" class="btn btn-primary">Join the Movement</a>
         <a href="#videos" class="btn btn-ghost">Watch Devotionals</a>
@@ -425,21 +473,23 @@
   <!-- GROW WITH US -->
   <section class="section" id="grow-with-us">
     <div class="container">
-      <h2 class="heading reveal">Transforming Africa</h2>
+      <h2 class="heading reveal">A Global Movement</h2>
       <p class="subheading reveal">Join the movement across Africa as we disciple the next generation.</p>
-      <div class="grid cols-2">
-        <div class="grow-with-us-map reveal">
-          <img src="YFCI Africa.png" alt="YFCI Africa Coverage Map">
+      <div class="grid cols-3">
+        <div class="card reveal">
+          <img src="G21 logo.png" alt="G21 Logo">
+          <h3>G21 Vision</h3>
+          <p>In 1997, God inspired Youth For Christ International/Africa with the Generation 21 (G21 Now) vision to disciple 21st-century African youth. The G21 Now Vision states: “To build a culture of youth evangelism and discipleship, a commitment to the Word of God, Prayer and Spiritual disciplines among the young people who will lead by example and serve as a catalyst for change.” (Mt. 5:13-16)</p>
         </div>
-        <div class="reveal">
-          <div class="vision-text">
-            <p>In 1997, God inspired Youth For Christ International/Africa with the Generation 21 (G21 Now) vision to disciple 21st-century African youth. The G21 Now Vision states: “To build a culture of youth evangelism and discipleship, a commitment to the Word of God, Prayer and Spiritual disciplines among the young people who will lead by example and serve as a catalyst for change.” (Mt. 5:13-16)</p>
-            <p>We pray that God will raise valiant young believers who earnestly seek His face in prayer and stand spiritually strong against the enemy’s attacks, as inspired by Ephesians 6:12.</p>
-          </div>
-          <div class="logos-container">
-            <img src="youth_for_christ_logo.png" alt="Youth for Christ Logo">
-            <img src="G21 Catalysts.png" alt="G21 Catalysts Logo">
-          </div>
+        <div class="card reveal">
+          <img src="youth_for_christ_logo.png" alt="Youth for Christ Logo">
+          <h3>Youth for Christ</h3>
+          <p>We pray that God will raise valiant young believers who earnestly seek His face in prayer and stand spiritually strong against the enemy’s attacks, as inspired by Ephesians 6:12.</p>
+        </div>
+        <div class="card reveal">
+          <img src="SF Logo.png" alt="Spiritual Formation Logo">
+          <h3>Spiritual Formation</h3>
+          <p>Nurturing deep spiritual roots through daily practices, community support, and transformative resources to equip the next generation for lasting faith.</p>
         </div>
       </div>
     </div>
@@ -661,4 +711,3 @@
   </script>
 </body>
 </html>
- 
