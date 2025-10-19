@@ -137,7 +137,7 @@
     .btn:hover{transform:translateY(-3px)}
 
     /* Section wrappers */
-    .section{padding:70px 0}
+    .section{padding:40px 0}
     .section .heading{font-size:clamp(1.6rem,3.2vw,2.2rem); margin:0 0 .6rem}
     .section .subheading{color:#cbd5e1; margin:0 auto 1.4rem; max-width:760px}
 
@@ -168,6 +168,38 @@
     .coordinator img{width:100px;height:100px;object-fit:cover;border-radius:10px;border:2px solid rgba(255,255,255,.15)}
     .coordinator h4{margin:.1rem 0 .1rem; font-size:1rem;}
     .coordinator p{margin:0;color:#d1d5db; font-size:0.85rem;}
+
+    /* Grow with us section */
+    .grow-with-us-map {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .grow-with-us-map img {
+      max-width: 100%;
+      height: auto;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+    .logos-container {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+    .logos-container img {
+      height: 80px;
+      width: auto;
+      border-radius: 10px;
+      box-shadow: var(--shadow);
+    }
+    @media (max-width: 768px) {
+      .logos-container {
+        gap: 1rem;
+      }
+      .logos-container img {
+        height: 60px;
+      }
+    }
 
     /* YouTube */
     .yt-wrap{text-align:center}
@@ -259,6 +291,7 @@
     <div class="links">
       <a href="#features">Prayer</a>
       <a href="#grow">Spiritual Growth</a>
+      <a href="#grow-with-us">Grow with Us</a>
       <a href="#community">Community</a>
       <a href="#videos">Videos</a>
       <a href="#coordinator">Team</a>
@@ -338,6 +371,21 @@
           <h3>Fasting Guides</h3>
           <p>Practical guidance for individuals and groups. (Placeholder)</p>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GROW WITH US -->
+  <section class="section" id="grow-with-us">
+    <div class="container">
+      <h2 class="heading reveal">Grow with us</h2>
+      <p class="subheading reveal">Join the movement across Africa as we disciple the next generation.</p>
+      <div class="grow-with-us-map reveal">
+        <img src="YFCI Africa.png" alt="YFCI Africa Coverage Map">
+      </div>
+      <div class="logos-container reveal">
+        <img src="youth_for_christ_logo.png" alt="Youth for Christ Logo">
+        <img src="G21 Catalysts.png" alt="G21 Catalysts Logo">
       </div>
     </div>
   </section>
@@ -492,6 +540,7 @@
         <div style="display:flex;flex-direction:column;gap:6px;margin-top:10px">
           <a href="#features">Prayer</a>
           <a href="#grow">Spiritual Growth</a>
+          <a href="#grow-with-us">Grow with Us</a>
           <a href="#community">Events</a>
           <a href="#videos">Videos</a>
         </div>
